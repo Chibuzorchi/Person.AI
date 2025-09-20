@@ -1,0 +1,54 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/users.list",
+    "headers": {
+      "Authorization": {
+        "matches": "Bearer xoxb-.*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "ok": true,
+      "members": [
+        {
+          "id": "U1234567890",
+          "name": "john.doe",
+          "real_name": "John Doe",
+          "email": "john.doe@example.com",
+          "is_bot": false,
+          "is_admin": false,
+          "is_owner": false,
+          "profile": {
+            "image_24": "https://example.com/avatar24.jpg",
+            "image_32": "https://example.com/avatar32.jpg",
+            "image_48": "https://example.com/avatar48.jpg",
+            "image_72": "https://example.com/avatar72.jpg",
+            "image_192": "https://example.com/avatar192.jpg"
+          }
+        },
+        {
+          "id": "U2345678901",
+          "name": "person.ai.bot",
+          "real_name": "Person.ai Bot",
+          "email": "bot@person.ai",
+          "is_bot": true,
+          "is_admin": false,
+          "is_owner": false,
+          "profile": {
+            "image_24": "https://example.com/bot24.jpg",
+            "image_32": "https://example.com/bot32.jpg",
+            "image_48": "https://example.com/bot48.jpg",
+            "image_72": "https://example.com/bot72.jpg",
+            "image_192": "https://example.com/bot192.jpg"
+          }
+        }
+      ]
+    }
+  }
+}

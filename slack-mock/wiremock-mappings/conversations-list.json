@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/conversations.list",
+    "headers": {
+      "Authorization": {
+        "matches": "Bearer xoxb-.*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "ok": true,
+      "channels": [
+        {
+          "id": "C1234567890",
+          "name": "general",
+          "is_channel": true,
+          "is_group": false,
+          "is_im": false,
+          "is_member": true,
+          "is_archived": false,
+          "is_general": true,
+          "created": 1234567890,
+          "num_members": 5
+        },
+        {
+          "id": "C2345678901",
+          "name": "random",
+          "is_channel": true,
+          "is_group": false,
+          "is_im": false,
+          "is_member": true,
+          "is_archived": false,
+          "is_general": false,
+          "created": 1234567891,
+          "num_members": 3
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/chat.postMessage",
+    "headers": {
+      "Authorization": {
+        "matches": "Bearer xoxb-.*"
+      },
+      "Content-Type": {
+        "equalTo": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.channel"
+      },
+      {
+        "matchesJsonPath": "$.text"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "ok": true,
+      "channel": "{{jsonPath request.body '$.channel'}}",
+      "ts": "{{now 'epoch'}}.{{randomValue length=6 type='NUMERIC'}}",
+      "message": {
+        "type": "message",
+        "subtype": "bot_message",
+        "text": "{{jsonPath request.body '$.text'}}",
+        "ts": "{{now 'epoch'}}.{{randomValue length=6 type='NUMERIC'}}",
+        "username": "Person.ai Bot",
+        "bot_id": "B{{randomValue length=8 type='ALPHANUMERIC'}}"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/chat.postMessage",
+    "headers": {
+      "Authorization": {
+        "matches": "Bearer xoxb-rate-limited.*"
+      }
+    }
+  },
+  "response": {
+    "status": 429,
+    "headers": {
+      "Content-Type": "application/json",
+      "Retry-After": "60"
+    },
+    "jsonBody": {
+      "ok": false,
+      "error": "ratelimited",
+      "retry_after": 60
+    }
+  }
+}
