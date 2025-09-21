@@ -10,6 +10,7 @@ jobs:
   # Test with Docker (when services are available)
   docker-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         component: [
@@ -45,10 +46,13 @@ jobs:
         pip install pytest
     
     - name: Start Docker services
+      timeout-minutes: 15
       run: |
         cd ${{ matrix.component }}
         if [ -f docker-compose.yml ]; then
-          docker-compose up -d
+          echo "Starting Docker services for ${{ matrix.component }}..."
+          timeout 600 docker-compose up -d || { echo "Docker start timed out"; exit 1; }
+          echo "Waiting for services to be ready..."
           sleep 30
         else
           echo "No docker-compose.yml found for ${{ matrix.component }}"

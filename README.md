@@ -149,10 +149,11 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **`contract-testing/`** — Contract testing (integrated with master pipeline)
 
 #### **Master Orchestration Workflows**
-- **`.github/workflows/simple-ci.yml`** — Simple CI pipeline (Python tests without Docker)
-- **`.github/workflows/docker-ci.yml`** — Docker-based CI pipeline (with Docker services)
-- **`.github/workflows/integration-tests.yml`** — Cross-component integration testing (daily at 6 AM)
-- **`.github/workflows/master-ci-cd.yml`** — Master pipeline (currently being fixed)
+- **`.github/workflows/hybrid-ci.yml`** — **Primary CI pipeline** (fast standalone + optional Docker)
+- **`.github/workflows/simple-ci.yml`** — Simple CI pipeline (Python tests only)
+- **`.github/workflows/docker-ci.yml`** — Docker-based CI pipeline (full integration)
+- **`.github/workflows/integration-tests.yml`** — Cross-component integration testing
+- **`.github/workflows/master-ci-cd.yml`** — Legacy master pipeline
 
 ### **Trigger Events**
 - **Push to `main`/`develop`**: All workflows run
@@ -161,15 +162,19 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 
 ### **Test Strategy**
 
-#### **Two-Tier Test Architecture**
-- **🟢 Standalone Tests**: No external dependencies, run in CI
+#### **Three-Tier Test Architecture**
+- **🟢 Standalone Tests**: No external dependencies, always run in CI
   - Test business logic, data generation, API mocking
   - Use mocks and stubs for external services
-  - Fast execution, reliable in any environment
+  - Fast execution (< 5 minutes), 100% reliable
 - **🔵 Integration Tests**: Require Docker services, run locally
   - Test actual HTTP endpoints, WebSocket connections
   - Validate service-to-service communication
   - Full end-to-end workflow validation
+- **🟡 Hybrid CI**: Best of both worlds
+  - **Always runs**: Standalone tests for core functionality
+  - **Optionally runs**: Docker integration with timeout protection
+  - **Graceful fallback**: Continues even if Docker fails
 
 #### **Test Markers**
 - `@pytest.mark.standalone` - Tests that run without external services

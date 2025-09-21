@@ -10,6 +10,7 @@ jobs:
   # Test all Python components without Docker
   test-all:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
         component: [
@@ -71,17 +72,19 @@ jobs:
           echo "No tests directory found for ${{ matrix.component }}"
         fi
     
-    - name: Run demo scripts
+    - name: Run demo scripts (optional)
+      continue-on-error: true
       run: |
         cd ${{ matrix.component }}
+        echo "🎯 Running demo for ${{ matrix.component }}..."
+        
         if [ -f scripts/quick_demo.py ]; then
-          python3 scripts/quick_demo.py
+          timeout 300 python3 scripts/quick_demo.py || echo "Demo timed out or failed (non-critical)"
         elif [ -f safe_integration.py ]; then
-          python3 safe_integration.py
+          timeout 60 python3 safe_integration.py || echo "Safe integration demo failed (non-critical)"
         else
           echo "No demo script found for ${{ matrix.component }}"
         fi
-      continue-on-error: true
     
     - name: Upload test results
       if: always()
