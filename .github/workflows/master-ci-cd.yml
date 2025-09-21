@@ -1,12 +1,13 @@
 name: Master CI/CD Pipeline
 
 on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
+  # Disabled: This workflow has been replaced by hybrid-ci.yml
+  # push:
+  #   branches: [main, develop]
+  # pull_request:
+  #   branches: [main]
   schedule:
-    - cron: '0 1 * * *'  # Run daily at 1 AM for comprehensive testing
+    - cron: '0 1 * * *'  # Run daily at 1 AM for comprehensive testing (scheduled only)
 
 jobs:
   # Slack Integration Tests

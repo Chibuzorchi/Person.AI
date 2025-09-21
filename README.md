@@ -148,17 +148,22 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **`bubble-frontend-mock/.github/workflows/bubble-frontend-tests.yml`** — Frontend testing (daily at 8 AM)
 - **`contract-testing/`** — Contract testing (integrated with master pipeline)
 
-#### **Master Orchestration Workflows**
-- **`.github/workflows/hybrid-ci.yml`** — **Primary CI pipeline** (fast standalone + optional Docker)
-- **`.github/workflows/simple-ci.yml`** — Simple CI pipeline (Python tests only)
-- **`.github/workflows/docker-ci.yml`** — Docker-based CI pipeline (full integration)
-- **`.github/workflows/integration-tests.yml`** — Cross-component integration testing
-- **`.github/workflows/master-ci-cd.yml`** — Legacy master pipeline
+#### **Active CI Workflows** ✅
+- **`.github/workflows/hybrid-ci.yml`** — **🚀 Primary CI pipeline** (fast standalone + optional Docker)
+- **`.github/workflows/simple-ci.yml`** — **⚡ Simple CI pipeline** (Python tests only, backup)
+- **`.github/workflows/integration-tests.yml`** — **🔗 Cross-component integration testing**
+
+#### **Scheduled/Manual Workflows** 🟡  
+- **`.github/workflows/master-ci-cd.yml`** — Full Docker integration (daily scheduled)
+- **`.github/workflows/docker-ci.yml`** — Docker CI (manual/weekly only)
 
 ### **Trigger Events**
-- **Push to `main`/`develop`**: All workflows run
-- **Pull Requests to `main`**: All workflows run
-- **Scheduled Runs**: Different components run at different times for optimal resource usage
+- **Push to `main`/`develop`**: ✅ Hybrid CI + Simple CI + Integration Tests (fast, reliable)
+- **Pull Requests to `main`**: ✅ Hybrid CI + Simple CI + Integration Tests (fast feedback)
+- **Daily Scheduled**: 🟡 Full Docker integration (comprehensive but slow)
+- **Manual Trigger**: 🔧 Docker CI available for on-demand testing
+
+> **📋 See [`CI_STATUS.md`](CI_STATUS.md) for detailed workflow status and usage guide**
 
 ### **Test Strategy**
 
