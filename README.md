@@ -85,21 +85,37 @@
 ## 🚀 Quick Start Guide
 
 ### Run Individual Mock Environments
+
+#### **With Docker (Full Experience):**
 ```bash
 # Slack Integration Testing
-cd slack-mock && docker-compose up -d && python3 -m pytest tests/ -v
+cd slack-mock && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
 
 # Test Data Seeding
-cd test-data-seeding && docker-compose up -d && python3 -m pytest tests/ -v
+cd test-data-seeding && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
 
 # End-to-End Testing
-cd e2e-testing && docker-compose up -d && python3 -m pytest tests/ -v
+cd e2e-testing && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
 
 # Monitoring System
-cd monitoring-system && docker-compose up -d && python3 -m pytest tests/ -v
+cd monitoring-system && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
 
 # Bubble Frontend Testing
-cd bubble-frontend-mock && docker-compose up -d && python3 -m pytest tests/ -v
+cd bubble-frontend-mock && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
+```
+
+#### **Without Docker (Quick Testing):**
+```bash
+# Install dependencies first
+pip install pytest requests aiohttp playwright faker psutil
+
+# Run tests directly
+cd slack-mock && python3 -m pytest tests/ -v
+cd test-data-seeding && python3 -m pytest tests/ -v
+cd e2e-testing && python3 -m pytest tests/ -v
+cd monitoring-system && python3 -m pytest tests/ -v
+cd bubble-frontend-mock && python3 -m pytest tests/ -v
+cd contract-testing && python3 test_safe_integration.py
 ```
 
 ### Run Integrated Demo
@@ -127,8 +143,10 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **`contract-testing/`** — Contract testing (integrated with master pipeline)
 
 #### **Master Orchestration Workflows**
-- **`.github/workflows/master-ci-cd.yml`** — Master pipeline that runs all components
+- **`.github/workflows/simple-ci.yml`** — Simple CI pipeline (Python tests without Docker)
+- **`.github/workflows/docker-ci.yml`** — Docker-based CI pipeline (with Docker services)
 - **`.github/workflows/integration-tests.yml`** — Cross-component integration testing (daily at 6 AM)
+- **`.github/workflows/master-ci-cd.yml`** — Master pipeline (currently being fixed)
 
 ### **Trigger Events**
 - **Push to `main`/`develop`**: All workflows run

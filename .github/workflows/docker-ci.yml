@@ -1,0 +1,89 @@
+name: Docker CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Test with Docker (when services are available)
+  docker-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        component: [
+          'slack-mock',
+          'test-data-seeding', 
+          'e2e-testing',
+          'monitoring-system',
+          'bubble-frontend-mock'
+        ]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Install Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Python dependencies
+      run: |
+        cd ${{ matrix.component }}
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+        pip install pytest
+    
+    - name: Start Docker services
+      run: |
+        cd ${{ matrix.component }}
+        if [ -f docker-compose.yml ]; then
+          docker-compose up -d
+          sleep 30
+        else
+          echo "No docker-compose.yml found for ${{ matrix.component }}"
+        fi
+    
+    - name: Run tests
+      run: |
+        cd ${{ matrix.component }}
+        if [ -d tests ]; then
+          python3 -m pytest tests/ -v --tb=short
+        else
+          echo "No tests directory found for ${{ matrix.component }}"
+        fi
+    
+    - name: Run demo scripts
+      run: |
+        cd ${{ matrix.component }}
+        if [ -f scripts/quick_demo.py ]; then
+          python3 scripts/quick_demo.py
+        else
+          echo "No demo script found for ${{ matrix.component }}"
+        fi
+      continue-on-error: true
+    
+    - name: Stop Docker services
+      if: always()
+      run: |
+        cd ${{ matrix.component }}
+        if [ -f docker-compose.yml ]; then
+          docker-compose down
+        fi
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.component }}-docker-test-results
+        path: ${{ matrix.component }}/
