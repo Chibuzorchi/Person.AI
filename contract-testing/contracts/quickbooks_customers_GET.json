@@ -36,7 +36,7 @@
     "required": ["QueryResponse"]
   },
   "version": "1.0.0",
-  "last_updated": "2024-01-15T10:00:00Z",
+  "last_updated": "2024-01-15T10:00:00+00:00",
   "priority": "critical",
   "breaking_changes": [],
   "non_breaking_changes": []

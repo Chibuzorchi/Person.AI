@@ -42,7 +42,28 @@ jobs:
       run: |
         cd ${{ matrix.component }}
         if [ -d tests ]; then
-          python3 -m pytest tests/ -v --tb=short
+          # For test-data-seeding, run standalone tests first
+          if [ "${{ matrix.component }}" = "test-data-seeding" ]; then
+            python3 -m pytest tests/test_api_mocks_standalone.py -v --tb=short
+            python3 -m pytest tests/test_data_generation.py -v --tb=short
+          # For e2e-testing, run standalone tests first
+          elif [ "${{ matrix.component }}" = "e2e-testing" ]; then
+            python3 -m pytest tests/test_e2e_standalone.py -v --tb=short
+          # For monitoring-system, run standalone tests first
+          elif [ "${{ matrix.component }}" = "monitoring-system" ]; then
+            python3 -m pytest tests/test_monitoring_standalone.py -v --tb=short
+          # For slack-mock, run standalone tests first
+          elif [ "${{ matrix.component }}" = "slack-mock" ]; then
+            python3 -m pytest tests/test_slack_standalone.py -v --tb=short
+          # For bubble-frontend-mock, run standalone tests first
+          elif [ "${{ matrix.component }}" = "bubble-frontend-mock" ]; then
+            python3 -m pytest tests/test_bubble_standalone.py -v --tb=short
+          # For contract-testing, run standalone tests first
+          elif [ "${{ matrix.component }}" = "contract-testing" ]; then
+            python3 -m pytest tests/test_contract_standalone.py -v --tb=short
+          else
+            python3 -m pytest tests/ -v --tb=short
+          fi
         else
           echo "No tests directory found for ${{ matrix.component }}"
         fi
