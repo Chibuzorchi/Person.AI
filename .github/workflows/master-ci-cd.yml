@@ -1,0 +1,213 @@
+name: Master CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 1 * * *'  # Run daily at 1 AM for comprehensive testing
+
+jobs:
+  # Slack Integration Tests
+  slack-integration:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Slack Integration Tests
+      run: |
+        cd slack-mock
+        docker-compose up -d
+        sleep 30
+        python3 -m pytest tests/ -v --tb=short
+        docker-compose down
+    - name: Upload Slack Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: slack-test-results
+        path: slack-mock/report.html
+
+  # Test Data Seeding Tests
+  test-data-seeding:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Test Data Seeding Tests
+      run: |
+        cd test-data-seeding
+        docker-compose up -d
+        sleep 30
+        python3 -m pytest tests/ -v --tb=short
+        docker-compose down
+    - name: Upload Data Seeding Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: data-seeding-test-results
+        path: test-data-seeding/htmlcov/
+
+  # E2E Pipeline Tests
+  e2e-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run E2E Pipeline Tests
+      run: |
+        cd e2e-testing
+        docker-compose up -d
+        sleep 30
+        python3 -m pytest tests/ -v --tb=short
+        python3 test_runner/e2e_test_runner.py
+        docker-compose down
+    - name: Upload E2E Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: e2e-test-results
+        path: e2e-testing/output/
+
+  # Monitoring System Tests
+  monitoring-system:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Monitoring System Tests
+      run: |
+        cd monitoring-system
+        docker-compose up -d
+        sleep 30
+        python3 -m pytest tests/ -v --tb=short
+        python3 scripts/run_monitoring_tests.py
+        docker-compose down
+    - name: Upload Monitoring Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: monitoring-test-results
+        path: monitoring-system/output/
+
+  # Bubble Frontend Tests
+  bubble-frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Playwright
+      run: |
+        cd bubble-frontend-mock
+        pip install playwright
+        playwright install chromium
+    - name: Run Bubble Frontend Tests
+      run: |
+        cd bubble-frontend-mock
+        docker-compose up -d
+        sleep 30
+        python3 -m pytest tests/ -v --tb=short
+        python3 scripts/run_all_tests.py
+        docker-compose down
+    - name: Upload Frontend Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: frontend-test-results
+        path: bubble-frontend-mock/visual_baselines/
+
+  # Integration Tests (Cross-Component)
+  integration-tests:
+    runs-on: ubuntu-latest
+    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Integration Demo
+      run: |
+        python3 documentation/integration_demo.py
+    - name: Upload Integration Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: integration-test-results
+        path: integration_test_results.json
+
+  # Test Summary and Reporting
+  test-summary:
+    runs-on: ubuntu-latest
+    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend, integration-tests]
+    if: always()
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: test-results/
+    
+    - name: Generate Test Summary
+      run: |
+        echo "# Person.ai QA Test Results Summary" > test-summary.md
+        echo "Generated: $(date)" >> test-summary.md
+        echo "" >> test-summary.md
+        
+        echo "## Test Results by Component" >> test-summary.md
+        echo "" >> test-summary.md
+        
+        echo "### Slack Integration" >> test-summary.md
+        if [ -d "test-results/slack-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        echo "### Test Data Seeding" >> test-summary.md
+        if [ -d "test-results/data-seeding-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        echo "### E2E Pipeline" >> test-summary.md
+        if [ -d "test-results/e2e-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        echo "### Monitoring System" >> test-summary.md
+        if [ -d "test-results/monitoring-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        echo "### Bubble Frontend" >> test-summary.md
+        if [ -d "test-results/frontend-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        echo "### Integration Tests" >> test-summary.md
+        if [ -d "test-results/integration-test-results" ]; then
+          echo "✅ Tests completed successfully" >> test-summary.md
+        else
+          echo "❌ Tests failed or not completed" >> test-summary.md
+        fi
+        echo "" >> test-summary.md
+        
+        cat test-summary.md
+    
+    - name: Upload Test Summary
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-summary
+        path: test-summary.md
+    
+    - name: Comment on PR (if applicable)
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const summary = fs.readFileSync('test-summary.md', 'utf8');
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: summary
+          });

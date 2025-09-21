@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person.ai - AI-Powered Daily Briefings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-robot"></i> Person.ai</h1>
+                <p>AI-Powered Daily Briefings</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="email-input">Email</label>
+                    <input type="email" id="email-input" data-testid="email-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="password-input">Password</label>
+                    <input type="password" id="password-input" data-testid="password-input" required>
+                </div>
+                <button type="submit" id="login-button" data-testid="login-button" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            <div id="login-error" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard-page" class="page">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i> Person.ai
+            </div>
+            <div class="nav-menu">
+                <a href="#" onclick="showPage('dashboard')" class="nav-link active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#" onclick="showPage('briefings')" class="nav-link">
+                    <i class="fas fa-calendar-alt"></i> Briefings
+                </a>
+                <a href="#" onclick="showPage('integrations')" class="nav-link">
+                    <i class="fas fa-plug"></i> Integrations
+                </a>
+                <a href="#" onclick="showPage('settings')" class="nav-link">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Dashboard Content -->
+            <div id="dashboard-content" class="page-content active">
+                <div class="dashboard-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's your briefing overview.</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" data-testid="dashboard">
+                        <h3><i class="fas fa-chart-line"></i> Today's Briefings</h3>
+                        <div class="metric">
+                            <span class="metric-value">3</span>
+                            <span class="metric-label">Scheduled</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-check-circle"></i> Active Integrations</h3>
+                        <div class="metric">
+                            <span class="metric-value">2</span>
+                            <span class="metric-label">Connected</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-clock"></i> Last Briefing</h3>
+                        <div class="metric">
+                            <span class="metric-value">2h ago</span>
+                            <span class="metric-label">Morning Brief</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Briefings Content -->
+            <div id="briefings-content" class="page-content">
+                <div class="briefings-header">
+                    <h1>Briefing Schedule</h1>
+                    <button onclick="showPage('schedule-briefing')" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Schedule New Briefing
+                    </button>
+                </div>
+                
+                <div class="briefings-list">
+                    <div class="briefing-item">
+                        <div class="briefing-info">
+                            <h3>Morning Daily Brief</h3>
+                            <p><i class="fas fa-clock"></i> 9:00 AM Daily</p>
+                            <p><i class="fas fa-broadcast-tower"></i> Slack, Email</p>
+                        </div>
+                        <div class="briefing-actions">
+                            <button class="btn btn-sm btn-secondary">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Briefing Content -->
+            <div id="schedule-briefing-content" class="page-content">
+                <div class="schedule-header">
+                    <h1>Schedule New Briefing</h1>
+                    <button onclick="showPage('briefings')" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                
+                <form id="schedule-form" class="schedule-form" data-testid="schedule-form">
+                    <div class="form-group">
+                        <label for="briefing-title">Briefing Title</label>
+                        <input type="text" id="briefing-title" data-testid="briefing-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time-select">Time</label>
+                        <select id="time-select" data-testid="time-select" required>
+                            <option value="">Select Time</option>
+                            <option value="06:00">6:00 AM</option>
+                            <option value="07:00">7:00 AM</option>
+                            <option value="08:00">8:00 AM</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="frequency-select">Frequency</label>
+                        <select id="frequency-select" data-testid="frequency-select" required>
+                            <option value="">Select Frequency</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Delivery Channels</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="slack-channel" data-testid="slack-channel">
+                                <span class="checkmark"></span>
+                                <i class="fab fa-slack"></i> Slack
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="email-channel" data-testid="email-channel">
+                                <span class="checkmark"></span>
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="sms-channel" data-testid="sms-channel">
+                                <span class="checkmark"></span>
+                                <i class="fas fa-sms"></i> SMS
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="save-schedule-button" data-testid="save-schedule-button" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Schedule
+                    </button>
+                </form>
+                
+                <div id="success-message" class="success-message" data-testid="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i> Briefing scheduled successfully!
+                </div>
+            </div>
+
+            <!-- Integrations Content -->
+            <div id="integrations-content" class="page-content">
+                <div class="integrations-header">
+                    <h1>Integrations</h1>
+                    <p>Connect your favorite tools to receive briefings</p>
+                </div>
+                
+                <div class="integrations-list" data-testid="integrations-list">
+                    <div class="integration-card" data-testid="slack-integration-card">
+                        <div class="integration-icon">
+                            <i class="fab fa-slack"></i>
+                        </div>
+                        <div class="integration-info">
+                            <h3>Slack</h3>
+                            <p>Receive briefings in your Slack channels</p>
+                            <span class="integration-status connected">Connected</span>
+                        </div>
+                        <div class="integration-actions">
+                            <button class="btn btn-sm btn-primary" onclick="setupIntegration('slack')">Configure</button>
+                        </div>
+                    </div>
+                    
+                    <div class="integration-card" data-testid="email-integration-card">
+                        <div class="integration-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="integration-info">
+                            <h3>Email</h3>
+                            <p>Get briefings delivered to your inbox</p>
+                            <span class="integration-status connected">Connected</span>
+                        </div>
+                        <div class="integration-actions">
+                            <button class="btn btn-sm btn-primary" onclick="setupIntegration('email')">Configure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Setup Modal -->
+            <div id="integration-setup-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="integration-modal-title">Setup Integration</h2>
+                        <button onclick="closeIntegrationModal()" class="close-btn">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="integration-setup-form" data-testid="integration-setup-form">
+                            <div id="slack-setup" class="integration-setup">
+                                <div class="form-group">
+                                    <label for="webhook-url">Webhook URL</label>
+                                    <input type="url" id="webhook-url" data-testid="webhook-url" placeholder="https://hooks.slack.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="channel-name">Channel Name</label>
+                                    <input type="text" id="channel-name" data-testid="channel-name" placeholder="#general">
+                                </div>
+                            </div>
+                            
+                            <div id="email-setup" class="integration-setup" style="display: none;">
+                                <div class="form-group">
+                                    <label for="smtp-server">SMTP Server</label>
+                                    <input type="text" id="smtp-server" data-testid="smtp-server" placeholder="smtp.gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-port">SMTP Port</label>
+                                    <input type="number" id="smtp-port" data-testid="smtp-port" placeholder="587">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-address">Email Address</label>
+                                    <input type="email" id="email-address" data-testid="email-address" placeholder="test@personai.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="test-connection-button" data-testid="test-connection-button" class="btn btn-secondary">
+                                    <i class="fas fa-plug"></i> Test Connection
+                                </button>
+                                <button type="submit" id="save-integration-button" data-testid="save-integration-button" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Save Integration
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="connection-test-result" class="test-result" data-testid="connection-test-result" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Connection successful!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div id="settings-content" class="page-content">
+                <div class="settings-header">
+                    <h1>Settings</h1>
+                    <p>Manage your preferences and account settings</p>
+                </div>
+                
+                <div class="settings-sections">
+                    <div class="settings-section">
+                        <h3>Notification Preferences</h3>
+                        <form id="preferences-form" data-testid="preferences-form">
+                            <div class="preference-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="slack-notifications-toggle" data-testid="slack-notifications-toggle" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Slack Notifications</span>
+                                </label>
+                            </div>
+                            
+                            <div class="preference-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="email-notifications-toggle" data-testid="email-notifications-toggle" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">Email Notifications</span>
+                                </label>
+                            </div>
+                            
+                            <div class="preference-item">
+                                <label class="toggle-label">
+                                    <input type="checkbox" id="sms-notifications-toggle" data-testid="sms-notifications-toggle">
+                                    <span class="toggle-slider"></span>
+                                    <span class="toggle-text">SMS Notifications</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" id="save-preferences-button" data-testid="save-preferences-button" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Preferences
+                            </button>
+                        </form>
+                        
+                        <div id="preferences-success-message" class="success-message" data-testid="success-message" style="display: none;">
+                            <i class="fas fa-check-circle"></i> Preferences saved successfully!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

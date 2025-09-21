@@ -1,0 +1,60 @@
+name: Test Data Seeding CI/CD
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * *'  # Run daily at 2 AM
+
+jobs:
+  test-data-seeding:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest pytest-cov
+    
+    - name: Start services
+      run: |
+        docker-compose up -d
+        # Wait for services to be ready
+        timeout 120 bash -c 'until curl -f http://localhost:5000/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:5001/health; do sleep 5; done'
+    
+    - name: Seed test data
+      run: |
+        docker-compose run data-seeder
+    
+    - name: Run data generation tests
+      run: |
+        pytest tests/test_data_generation.py -v --cov=data_generators --cov-report=html
+    
+    - name: Run API mock tests
+      run: |
+        pytest tests/test_api_mocks.py -v --cov=api_mocks --cov-report=html
+    
+    - name: Test API endpoints
+      run: |
+        python scripts/quick_demo.py
+    
+    - name: Upload coverage reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-reports
+        path: htmlcov/
+    
+    - name: Clean up
+      if: always()
+      run: |
+        docker-compose down -v

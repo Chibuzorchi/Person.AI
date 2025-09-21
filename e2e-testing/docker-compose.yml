@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  gmail-mock:
+    build: ./mock_services/gmail
+    ports:
+      - "5004:5000"
+    environment:
+      - MOCK_DATA_COUNT=20
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  content-engine:
+    build: ./mock_services/content_engine
+    ports:
+      - "5005:5000"
+    environment:
+      - OPENAI_API_KEY=mock_key
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  media-engine:
+    build: ./mock_services/media_engine
+    ports:
+      - "5006:5000"
+    environment:
+      - ELEVENLABS_API_KEY=mock_key
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  delivery-gateway:
+    build: ./mock_services/delivery_gateway
+    ports:
+      - "5007:5000"
+    environment:
+      - SLACK_WEBHOOK_URL=mock_webhook
+      - EMAIL_SMTP_HOST=mock_smtp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  e2e-test-runner:
+    build: .
+    environment:
+      - GMAIL_MOCK_URL=http://gmail-mock:5000
+      - CONTENT_ENGINE_URL=http://content-engine:5000
+      - MEDIA_ENGINE_URL=http://media-engine:5000
+      - DELIVERY_GATEWAY_URL=http://delivery-gateway:5000
+    depends_on:
+      gmail-mock:
+        condition: service_healthy
+      content-engine:
+        condition: service_healthy
+      media-engine:
+        condition: service_healthy
+      delivery-gateway:
+        condition: service_healthy
+    volumes:
+      - ./test_runner:/app/test_runner
+      - ./tests:/app/tests
+      - ./scripts:/app/scripts
+      - ./output:/app/output
+
+volumes:
+  e2e_output:

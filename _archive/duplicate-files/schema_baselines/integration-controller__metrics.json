@@ -1,0 +1,26 @@
+{
+  "service_name": "integration-controller",
+  "endpoint": "/metrics",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "http_requests_total": {
+        "type": "integer"
+      },
+      "http_request_duration_seconds": {
+        "type": "number"
+      },
+      "memory_usage_bytes": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "http_requests_total",
+      "http_request_duration_seconds",
+      "memory_usage_bytes"
+    ]
+  },
+  "created_at": "2025-09-21T11:02:00.727606",
+  "schema_hash": "88eab538319cf3724fc1fb5972a8ea25",
+  "version": "1.0.0"
+}

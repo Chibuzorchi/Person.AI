@@ -1,0 +1,106 @@
+name: End-to-End Pipeline Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 4 * * *'  # Run daily at 4 AM
+
+jobs:
+  e2e-pipeline-tests:
+    runs-on: ubuntu-latest
+    
+    services:
+      gmail-mock:
+        image: personai/gmail-mock:latest
+        ports:
+          - 5004:5000
+        env:
+          - SERVICE_NAME=gmail-mock
+          - EMAIL_COUNT=20
+          - HEALTH_CHECK_INTERVAL=30s
+      
+      content-engine:
+        image: personai/content-engine:latest
+        ports:
+          - 5005:5000
+        env:
+          - SERVICE_NAME=content-engine
+          - MODEL=gpt-4-mock
+          - HEALTH_CHECK_INTERVAL=30s
+      
+      media-engine:
+        image: personai/media-engine:latest
+        ports:
+          - 5006:5000
+        env:
+          - SERVICE_NAME=media-engine
+          - VOICE_ID=mock_voice_id
+          - HEALTH_CHECK_INTERVAL=30s
+      
+      delivery-gateway:
+        image: personai/delivery-gateway:latest
+        ports:
+          - 5007:5000
+        env:
+          - SERVICE_NAME=delivery-gateway
+          - DELIVERY_COUNT=18
+          - HEALTH_CHECK_INTERVAL=30s
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest pytest-asyncio requests aiohttp pyttsx3
+    
+    - name: Wait for services
+      run: |
+        timeout 120 bash -c 'until curl -f http://localhost:5004/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:5005/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:5006/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:5007/health; do sleep 5; done'
+    
+    - name: Run E2E pipeline tests
+      run: |
+        pytest tests/test_e2e_pipeline.py -v --tb=short --html=e2e_report.html --self-contained-html
+    
+    - name: Run AI quality validation tests
+      run: |
+        python -c "from ai_quality_validation import AIQualityValidator; print('AI Quality Validation module loads successfully')"
+    
+    - name: Run comprehensive E2E test
+      run: |
+        python test_runner/e2e_test_runner.py
+    
+    - name: Run quick demo
+      run: |
+        python scripts/quick_demo.py
+    
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: e2e-test-reports
+        path: |
+          e2e_report.html
+          output/
+    
+    - name: Upload generated audio files
+      uses: actions/upload-artifact@v3
+      with:
+        name: e2e-audio-files
+        path: output/*.wav
+    
+    - name: Alert on failure
+      if: failure()
+      run: |
+        echo "E2E pipeline tests failed! Check the reports for details."
+        # In production, this would send alerts to Slack/email

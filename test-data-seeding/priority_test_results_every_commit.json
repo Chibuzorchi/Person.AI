@@ -1,0 +1,62 @@
+{
+  "trigger": "every_commit",
+  "total_tests": 4,
+  "passed": 4,
+  "failed": 0,
+  "success_rate": 1.0,
+  "total_duration": 0.10137701034545898,
+  "priority_stats": {
+    "critical": {
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "success_rate": 1.0
+    }
+  },
+  "results": [
+    {
+      "integration_name": "quickbooks",
+      "connector_type": "accounting",
+      "priority": "critical",
+      "success": true,
+      "duration": 0.10117912292480469,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 200,
+      "timestamp": "2025-09-21T11:07:41.970262"
+    },
+    {
+      "integration_name": "salesforce",
+      "connector_type": "crm",
+      "priority": "critical",
+      "success": true,
+      "duration": 0.10119986534118652,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 200,
+      "timestamp": "2025-09-21T11:07:41.970292"
+    },
+    {
+      "integration_name": "slack",
+      "connector_type": "messaging",
+      "priority": "critical",
+      "success": true,
+      "duration": 0.10120081901550293,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 200,
+      "timestamp": "2025-09-21T11:07:41.970299"
+    },
+    {
+      "integration_name": "gmail",
+      "connector_type": "email",
+      "priority": "critical",
+      "success": true,
+      "duration": 0.10119986534118652,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 200,
+      "timestamp": "2025-09-21T11:07:41.970302"
+    }
+  ]
+}

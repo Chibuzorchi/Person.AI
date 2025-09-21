@@ -1,0 +1,1700 @@
+{
+  "integrations": [
+    {
+      "name": "quickbooks",
+      "connector_type": "accounting",
+      "priority": "critical",
+      "base_url": "http://localhost:5000",
+      "endpoints": [
+        "/api/customers",
+        "/api/invoices"
+      ],
+      "test_data_count": 200,
+      "success_rate": 1.0
+    },
+    {
+      "name": "salesforce",
+      "connector_type": "crm",
+      "priority": "critical",
+      "base_url": "http://localhost:5001",
+      "endpoints": [
+        "/api/accounts",
+        "/api/contacts"
+      ],
+      "test_data_count": 200,
+      "success_rate": 1.0
+    },
+    {
+      "name": "slack",
+      "connector_type": "messaging",
+      "priority": "critical",
+      "base_url": "http://localhost:8080",
+      "endpoints": [
+        "/api/chat.postMessage"
+      ],
+      "test_data_count": 200,
+      "success_rate": 1.0
+    },
+    {
+      "name": "gmail",
+      "connector_type": "email",
+      "priority": "critical",
+      "base_url": "http://localhost:5004",
+      "endpoints": [
+        "/api/messages"
+      ],
+      "test_data_count": 200,
+      "success_rate": 1.0
+    },
+    {
+      "name": "hubspot",
+      "connector_type": "crm",
+      "priority": "important",
+      "base_url": "http://localhost:5002",
+      "endpoints": [
+        "/api/contacts"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "stripe",
+      "connector_type": "payment",
+      "priority": "important",
+      "base_url": "http://localhost:5003",
+      "endpoints": [
+        "/api/charges"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "zendesk",
+      "connector_type": "support",
+      "priority": "important",
+      "base_url": "http://localhost:5005",
+      "endpoints": [
+        "/api/tickets"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "asana",
+      "connector_type": "project_management",
+      "priority": "important",
+      "base_url": "http://localhost:5006",
+      "endpoints": [
+        "/api/tasks"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "trello",
+      "connector_type": "project_management",
+      "priority": "important",
+      "base_url": "http://localhost:5007",
+      "endpoints": [
+        "/api/boards"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "notion",
+      "connector_type": "productivity",
+      "priority": "important",
+      "base_url": "http://localhost:5008",
+      "endpoints": [
+        "/api/pages"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "airtable",
+      "connector_type": "database",
+      "priority": "important",
+      "base_url": "http://localhost:5009",
+      "endpoints": [
+        "/api/records"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "monday",
+      "connector_type": "project_management",
+      "priority": "important",
+      "base_url": "http://localhost:5010",
+      "endpoints": [
+        "/api/items"
+      ],
+      "test_data_count": 150,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_001",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5100",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_002",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5101",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_003",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5102",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_004",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5103",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_005",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5104",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_006",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5105",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_007",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5106",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_008",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5107",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_009",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5108",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_010",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5109",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_011",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5110",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_012",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5111",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_013",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5112",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_014",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5113",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_015",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5114",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_016",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5115",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_017",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5116",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_018",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5117",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_019",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5118",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_020",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5119",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_021",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5120",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_022",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5121",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_023",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5122",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_024",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5123",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_025",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5124",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_026",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5125",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_027",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5126",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_028",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5127",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_029",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5128",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_030",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5129",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_031",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5130",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_032",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5131",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_033",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5132",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_034",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5133",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_035",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5134",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_036",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5135",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_037",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5136",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_038",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5137",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_039",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5138",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_040",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5139",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_041",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5140",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_042",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5141",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_043",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5142",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_044",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5143",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_045",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5144",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_046",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5145",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_047",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5146",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_048",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5147",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_049",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5148",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_050",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5149",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_051",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5150",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_052",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5151",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_053",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5152",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_054",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5153",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_055",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5154",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_056",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5155",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_057",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5156",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_058",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5157",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_059",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5158",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_060",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5159",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_061",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5160",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_062",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5161",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_063",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5162",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_064",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5163",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_065",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5164",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_066",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5165",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_067",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5166",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_068",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5167",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_069",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5168",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_070",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5169",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_071",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5170",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_072",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5171",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_073",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5172",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_074",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5173",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_075",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5174",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_076",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5175",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_077",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5176",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_078",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5177",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_079",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5178",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_080",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5179",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_081",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5180",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_082",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5181",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_083",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5182",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_084",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5183",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_085",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5184",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_086",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5185",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_087",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5186",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_088",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5187",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_089",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5188",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_090",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5189",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_091",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5190",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_092",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5191",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_093",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5192",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_094",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5193",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_095",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5194",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_096",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5195",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_097",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5196",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_098",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5197",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_099",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5198",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_100",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5199",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_101",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5100",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_102",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5101",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_103",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5102",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_104",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5103",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_105",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5104",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_106",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5105",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_107",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5106",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_108",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5107",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_109",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5108",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_110",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5109",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_111",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5110",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_112",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5111",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_113",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5112",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_114",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5113",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_115",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5114",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_116",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5115",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_117",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5116",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_118",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5117",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_119",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5118",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_120",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5119",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_121",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5120",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_122",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5121",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_123",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5122",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_124",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5123",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_125",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5124",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_126",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5125",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_127",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5126",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_128",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5127",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_129",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5128",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_130",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5129",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_131",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5130",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_132",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5131",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_133",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5132",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_134",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5133",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_135",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5134",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_136",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "base_url": "http://localhost:5135",
+      "endpoints": [
+        "/api/marketing/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_137",
+      "connector_type": "support",
+      "priority": "secondary",
+      "base_url": "http://localhost:5136",
+      "endpoints": [
+        "/api/support/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_138",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "base_url": "http://localhost:5137",
+      "endpoints": [
+        "/api/project_management/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_139",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "base_url": "http://localhost:5138",
+      "endpoints": [
+        "/api/communication/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_140",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "base_url": "http://localhost:5139",
+      "endpoints": [
+        "/api/productivity/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_141",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "base_url": "http://localhost:5140",
+      "endpoints": [
+        "/api/crm/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    },
+    {
+      "name": "integration_142",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "base_url": "http://localhost:5141",
+      "endpoints": [
+        "/api/accounting/data"
+      ],
+      "test_data_count": 50,
+      "success_rate": 1.0
+    }
+  ]
+}

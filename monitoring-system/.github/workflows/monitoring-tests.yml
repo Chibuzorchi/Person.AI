@@ -1,0 +1,110 @@
+name: Monitoring Endpoint Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+
+jobs:
+  monitoring-tests:
+    runs-on: ubuntu-latest
+    
+    services:
+      integration-controller:
+        image: personai/integration-controller:latest
+        ports:
+          - 8001:8001
+        env:
+          - SERVICE_NAME=integration-controller
+          - SERVICE_VERSION=1.2.3
+          - HEALTH_CHECK_INTERVAL=30s
+          - METRICS_ENABLED=true
+          - AUDIT_ENABLED=true
+      
+      content-engine:
+        image: personai/content-engine:latest
+        ports:
+          - 8002:8002
+        env:
+          - SERVICE_NAME=content-engine
+          - SERVICE_VERSION=2.1.0
+          - HEALTH_CHECK_INTERVAL=30s
+          - METRICS_ENABLED=true
+          - AUDIT_ENABLED=true
+      
+      media-engine:
+        image: personai/media-engine:latest
+        ports:
+          - 8003:8003
+        env:
+          - SERVICE_NAME=media-engine
+          - SERVICE_VERSION=1.5.2
+          - HEALTH_CHECK_INTERVAL=30s
+          - METRICS_ENABLED=true
+          - AUDIT_ENABLED=true
+      
+      delivery-gateway:
+        image: personai/delivery-gateway:latest
+        ports:
+          - 8004:8004
+        env:
+          - SERVICE_NAME=delivery-gateway
+          - SERVICE_VERSION=3.0.1
+          - HEALTH_CHECK_INTERVAL=30s
+          - METRICS_ENABLED=true
+          - AUDIT_ENABLED=true
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest pytest-asyncio requests aiohttp psutil
+    
+    - name: Wait for services
+      run: |
+        timeout 120 bash -c 'until curl -f http://localhost:8001/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:8002/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:8003/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:8004/health; do sleep 5; done'
+    
+    - name: Run health endpoint tests
+      run: |
+        pytest tests/test_health_endpoints.py -v --tb=short --html=health_report.html --self-contained-html
+    
+    - name: Run metrics endpoint tests
+      run: |
+        pytest tests/test_metrics_endpoints.py -v --tb=short --html=metrics_report.html --self-contained-html
+    
+    - name: Run audit endpoint tests
+      run: |
+        pytest tests/test_audit_endpoints.py -v --tb=short --html=audit_report.html --self-contained-html
+    
+    - name: Run comprehensive monitoring test
+      run: |
+        python scripts/run_monitoring_tests.py
+    
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: monitoring-test-reports
+        path: |
+          health_report.html
+          metrics_report.html
+          audit_report.html
+          monitoring_test_results.json
+    
+    - name: Alert on failure
+      if: failure()
+      run: |
+        echo "Monitoring tests failed! Check the reports for details."
+        # In production, this would send alerts to Slack/email

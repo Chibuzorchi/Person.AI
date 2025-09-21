@@ -1,0 +1,30 @@
+{
+  "service_name": "integration-controller",
+  "endpoint": "/health",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      },
+      "uptime": {
+        "type": "integer"
+      },
+      "version": {
+        "type": "string"
+      },
+      "timestamp": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "status",
+      "uptime",
+      "version",
+      "timestamp"
+    ]
+  },
+  "created_at": "2025-09-21T11:10:18.592504",
+  "schema_hash": "7cedc6248f8a1f0795148c71d392bb65",
+  "version": "1.0.0"
+}

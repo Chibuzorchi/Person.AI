@@ -1,0 +1,361 @@
+name: Person.ai Advanced Testing Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * *'  # Nightly at 2 AM
+    - cron: '0 8 * * 1'  # Weekly on Monday at 8 AM
+  workflow_dispatch:
+    inputs:
+      test_scope:
+        description: 'Test scope'
+        required: true
+        default: 'critical'
+        type: choice
+        options:
+        - critical
+        - important
+        - secondary
+        - all
+
+jobs:
+  # Job 1: Contract Testing & Schema Drift Detection
+  contract-testing:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r contract-testing/requirements.txt
+        pip install jsonschema requests pyyaml
+    
+    - name: Run Contract Tests
+      run: |
+        cd contract-testing
+        python schema_validator.py
+        python -m pytest tests/ -v --html=contract_report.html
+    
+    - name: Schema Drift Detection
+      run: |
+        cd contract-testing
+        python scripts/detect_schema_drift.py --baseline contracts/ --current api-responses/
+    
+    - name: Upload Contract Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: contract-test-results
+        path: contract-testing/contract_report.html
+
+  # Job 2: AI Quality Testing
+  ai-quality-testing:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r ai-quality-testing/requirements.txt
+        pip install librosa soundfile numpy scikit-learn
+    
+    - name: Run AI Quality Tests
+      run: |
+        cd ai-quality-testing
+        python quality_validator.py
+        python -m pytest tests/ -v --html=ai_quality_report.html
+    
+    - name: Generate AI Quality Baselines
+      run: |
+        cd ai-quality-testing
+        python scripts/generate_baselines.py --output baselines/
+    
+    - name: Upload AI Quality Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: ai-quality-results
+        path: ai-quality-testing/ai_quality_report.html
+
+  # Job 3: Priority-Based Integration Testing
+  priority-integration-testing:
+    runs-on: ubuntu-latest
+    if: always()
+    
+    strategy:
+      matrix:
+        test_scope: [critical, important, secondary]
+        include:
+          - test_scope: critical
+            trigger: every_commit
+            max_parallel: 10
+          - test_scope: important
+            trigger: nightly
+            max_parallel: 15
+          - test_scope: secondary
+            trigger: weekly
+            max_parallel: 20
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r priority-testing/requirements.txt
+        pip install pyyaml requests asyncio
+    
+    - name: Start Mock Services
+      run: |
+        cd priority-testing
+        docker-compose up -d
+        sleep 30  # Wait for services to start
+    
+    - name: Run Priority Tests
+      run: |
+        cd priority-testing
+        python test_orchestrator.py --scope ${{ matrix.test_scope }} --parallel ${{ matrix.max_parallel }}
+    
+    - name: Upload Priority Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: priority-test-results-${{ matrix.test_scope }}
+        path: priority-testing/results_*.json
+    
+    - name: Cleanup
+      if: always()
+      run: |
+        cd priority-testing
+        docker-compose down
+
+  # Job 4: Parallel Execution & Shared Mock Services
+  parallel-execution:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r priority-testing/requirements.txt
+        pip install pyyaml requests asyncio
+    
+    - name: Start Shared Mock Services
+      run: |
+        cd priority-testing
+        python scripts/start_shared_mocks.py --services crm,accounting,messaging,email
+        sleep 60  # Wait for all services to start
+    
+    - name: Run Parallel Tests
+      run: |
+        cd priority-testing
+        python test_orchestrator.py --parallel 25 --shared-mocks
+    
+    - name: Performance Analysis
+      run: |
+        cd priority-testing
+        python scripts/analyze_performance.py --results results_*.json
+    
+    - name: Upload Parallel Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: parallel-test-results
+        path: priority-testing/results_*.json
+    
+    - name: Cleanup
+      if: always()
+      run: |
+        cd priority-testing
+        python scripts/stop_shared_mocks.py
+
+  # Job 5: Comprehensive Test Report
+  test-report:
+    runs-on: ubuntu-latest
+    needs: [contract-testing, ai-quality-testing, priority-integration-testing]
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Download All Artifacts
+      uses: actions/download-artifact@v3
+    
+    - name: Generate Comprehensive Report
+      run: |
+        python scripts/generate_comprehensive_report.py \
+          --contract contract-test-results/ \
+          --ai-quality ai-quality-results/ \
+          --priority priority-test-results-*/ \
+          --output comprehensive_report.html
+    
+    - name: Upload Comprehensive Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: comprehensive-test-report
+        path: comprehensive_report.html
+    
+    - name: Comment on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.readFileSync('comprehensive_report.html', 'utf8');
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## 🧪 Test Results Summary
+            
+            ${report}
+            
+            [View Full Report](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})
+            `
+          });
+
+  # Job 6: Schema Change Detection
+  schema-change-detection:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2  # Need previous commit for comparison
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r contract-testing/requirements.txt
+        pip install jsonschema requests pyyaml gitpython
+    
+    - name: Detect Schema Changes
+      run: |
+        cd contract-testing
+        python scripts/detect_schema_changes.py \
+          --previous ${{ github.event.before }} \
+          --current ${{ github.sha }} \
+          --output schema_changes.json
+    
+    - name: Trigger Additional Tests on Schema Changes
+      if: steps.detect_changes.outputs.has_changes == 'true'
+      run: |
+        echo "Schema changes detected, triggering additional tests"
+        # This would trigger additional test jobs for affected integrations
+    
+    - name: Upload Schema Changes
+      uses: actions/upload-artifact@v3
+      with:
+        name: schema-changes
+        path: contract-testing/schema_changes.json
+
+  # Job 7: Performance Monitoring
+  performance-monitoring:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r priority-testing/requirements.txt
+        pip install pyyaml requests asyncio psutil
+    
+    - name: Run Performance Tests
+      run: |
+        cd priority-testing
+        python scripts/performance_monitoring.py \
+          --duration 300 \
+          --concurrent-users 50 \
+          --output performance_report.json
+    
+    - name: Analyze Performance Trends
+      run: |
+        cd priority-testing
+        python scripts/analyze_performance_trends.py \
+          --current performance_report.json \
+          --historical performance_history/
+    
+    - name: Upload Performance Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-results
+        path: priority-testing/performance_report.json
+
+  # Job 8: Notification & Alerting
+  notification:
+    runs-on: ubuntu-latest
+    needs: [contract-testing, ai-quality-testing, priority-integration-testing, test-report]
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Download Test Results
+      uses: actions/download-artifact@v3
+    
+    - name: Send Slack Notification
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        text: |
+          🚨 Person.ai Test Pipeline Failed
+          
+          Contract Tests: ${{ needs.contract-testing.result }}
+          AI Quality Tests: ${{ needs.ai-quality-testing.result }}
+          Priority Tests: ${{ needs.priority-integration-testing.result }}
+          
+          [View Details](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    
+    - name: Send Success Notification
+      if: success()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: success
+        text: |
+          ✅ Person.ai Test Pipeline Passed
+          
+          All tests completed successfully!
+          
+          [View Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

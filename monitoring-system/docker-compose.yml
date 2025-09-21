@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  integration-controller:
+    build: ./mock_services/integration-controller
+    ports:
+      - "8001:8001"
+    environment:
+      - SERVICE_NAME=integration-controller
+      - SERVICE_VERSION=1.2.3
+      - HEALTH_CHECK_INTERVAL=30s
+      - METRICS_ENABLED=true
+      - AUDIT_ENABLED=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  content-engine:
+    build: ./mock_services/content-engine
+    ports:
+      - "8002:8002"
+    environment:
+      - SERVICE_NAME=content-engine
+      - SERVICE_VERSION=2.1.0
+      - HEALTH_CHECK_INTERVAL=30s
+      - METRICS_ENABLED=true
+      - AUDIT_ENABLED=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  media-engine:
+    build: ./mock_services/media-engine
+    ports:
+      - "8003:8003"
+    environment:
+      - SERVICE_NAME=media-engine
+      - SERVICE_VERSION=1.5.2
+      - HEALTH_CHECK_INTERVAL=30s
+      - METRICS_ENABLED=true
+      - AUDIT_ENABLED=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  delivery-gateway:
+    build: ./mock_services/delivery-gateway
+    ports:
+      - "8004:8004"
+    environment:
+      - SERVICE_NAME=delivery-gateway
+      - SERVICE_VERSION=3.0.1
+      - HEALTH_CHECK_INTERVAL=30s
+      - METRICS_ENABLED=true
+      - AUDIT_ENABLED=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  monitoring-test-runner:
+    build: .
+    depends_on:
+      integration-controller:
+        condition: service_healthy
+      content-engine:
+        condition: service_healthy
+      media-engine:
+        condition: service_healthy
+      delivery-gateway:
+        condition: service_healthy
+    environment:
+      - INTEGRATION_CONTROLLER_URL=http://integration-controller:8001
+      - CONTENT_ENGINE_URL=http://content-engine:8002
+      - MEDIA_ENGINE_URL=http://media-engine:8003
+      - DELIVERY_GATEWAY_URL=http://delivery-gateway:8004
+    volumes:
+      - ./tests:/app/tests
+      - ./scripts:/app/scripts
+      - ./output:/app/output

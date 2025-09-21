@@ -1,0 +1,94 @@
+name: Bubble Frontend Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 8 * * *'  # Run daily at 8 AM
+
+jobs:
+  bubble-frontend-tests:
+    runs-on: ubuntu-latest
+    
+    services:
+      frontend:
+        image: personai/bubble-frontend:latest
+        ports:
+          - 8080:80
+        env:
+          - API_BASE_URL=http://api:5000/api
+      
+      api:
+        image: personai/bubble-api:latest
+        ports:
+          - 5000:5000
+        env:
+          - FLASK_ENV=test
+          - CORS_ORIGINS=http://frontend:80
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest pytest-asyncio requests playwright
+    
+    - name: Install Playwright browsers
+      run: |
+        playwright install chromium
+    
+    - name: Wait for services
+      run: |
+        timeout 120 bash -c 'until curl -f http://localhost:5000/api/health; do sleep 5; done'
+        timeout 120 bash -c 'until curl -f http://localhost:8080; do sleep 5; done'
+    
+    - name: Run API tests
+      run: |
+        pytest tests/test_bubble_api.py -v --tb=short --html=api_report.html --self-contained-html
+    
+    - name: Run UI tests
+      run: |
+        pytest tests/test_bubble_ui.py -v --tb=short --html=ui_report.html --self-contained-html
+    
+    - name: Run visual regression tests
+      run: |
+        pytest tests/test_visual_regression.py -v --tb=short --html=visual_report.html --self-contained-html
+    
+    - name: Run integration tests
+      run: |
+        pytest tests/test_integration_workflows.py -v --tb=short --html=integration_report.html --self-contained-html
+    
+    - name: Run comprehensive test suite
+      run: |
+        python scripts/run_all_tests.py
+    
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: bubble-frontend-test-reports
+        path: |
+          api_report.html
+          ui_report.html
+          visual_report.html
+          integration_report.html
+          bubble_test_results.json
+    
+    - name: Upload visual baselines
+      uses: actions/upload-artifact@v3
+      with:
+        name: visual-baselines
+        path: visual_baselines/
+    
+    - name: Alert on failure
+      if: failure()
+      run: |
+        echo "Bubble frontend tests failed! Check the reports for details."
+        # In production, this would send alerts to Slack/email
