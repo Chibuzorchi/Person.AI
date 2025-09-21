@@ -7,6 +7,7 @@ import pytest
 import json
 import sys
 import os
+import asyncio
 from unittest.mock import Mock, patch
 
 # Add the parent directory to the path
@@ -118,7 +119,13 @@ class TestE2EStandalone:
                 
                 # Test the pipeline
                 runner = E2ETestRunner()
-                result = runner.run_e2e_test()
+                # Since this is an async method, we need to run it properly
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                try:
+                    result = loop.run_until_complete(runner.run_complete_e2e_test())
+                finally:
+                    loop.close()
                 
                 assert result is not None
                 print("✅ E2E pipeline logic works correctly")

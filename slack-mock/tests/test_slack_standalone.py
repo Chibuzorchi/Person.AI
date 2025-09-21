@@ -26,6 +26,24 @@ class TestSlackStandalone:
         except ImportError as e:
             pytest.skip(f"Slack contract testing not available: {e}")
     
+    def test_wiremock_mappings_exist(self):
+        """Test that WireMock mapping files exist"""
+        import os
+        mapping_files = [
+            'wiremock-mappings/chat-postmessage-success.json',
+            'wiremock-mappings/chat-postmessage-expired-token.json',
+            'wiremock-mappings/chat-postmessage-rate-limited.json',
+            'wiremock-mappings/conversations-list.json',
+            'wiremock-mappings/users-list.json',
+            'wiremock-mappings/health.json'
+        ]
+        
+        for file_path in mapping_files:
+            full_path = os.path.join(os.path.dirname(__file__), '..', file_path)
+            assert os.path.exists(full_path), f"WireMock mapping {file_path} not found"
+        
+        print("✅ All WireMock mapping files exist")
+    
     def test_contract_validation_logic(self):
         """Test contract validation logic without HTTP calls"""
         try:

@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/health"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "healthy",
+      "timestamp": "{{now format='yyyy-MM-dd HH:mm:ss'}}",
+      "websocket_clients": 0,
+      "uptime": "{{randomInt lower=100 upper=10000}}"
+    },
+    "transformers": ["response-template"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/ws"
+  },
+  "response": {
+    "status": 101,
+    "headers": {
+      "Upgrade": "websocket",
+      "Connection": "Upgrade",
+      "Sec-WebSocket-Accept": "{{request.headers.Sec-WebSocket-Key.[0] | base64}}="
+    }
+  }
+}
