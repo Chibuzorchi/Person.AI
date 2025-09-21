@@ -13,7 +13,7 @@ jobs:
   slack-integration:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run Slack Integration Tests
       run: |
         cd slack-mock
@@ -22,7 +22,7 @@ jobs:
         python3 -m pytest tests/ -v --tb=short
         docker-compose down
     - name: Upload Slack Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: slack-test-results
         path: slack-mock/report.html
@@ -31,7 +31,7 @@ jobs:
   test-data-seeding:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run Test Data Seeding Tests
       run: |
         cd test-data-seeding
@@ -40,7 +40,7 @@ jobs:
         python3 -m pytest tests/ -v --tb=short
         docker-compose down
     - name: Upload Data Seeding Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: data-seeding-test-results
         path: test-data-seeding/htmlcov/
@@ -49,7 +49,7 @@ jobs:
   e2e-pipeline:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run E2E Pipeline Tests
       run: |
         cd e2e-testing
@@ -59,7 +59,7 @@ jobs:
         python3 test_runner/e2e_test_runner.py
         docker-compose down
     - name: Upload E2E Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: e2e-test-results
         path: e2e-testing/output/
@@ -68,7 +68,7 @@ jobs:
   monitoring-system:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run Monitoring System Tests
       run: |
         cd monitoring-system
@@ -78,7 +78,7 @@ jobs:
         python3 scripts/run_monitoring_tests.py
         docker-compose down
     - name: Upload Monitoring Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: monitoring-test-results
         path: monitoring-system/output/
@@ -87,7 +87,7 @@ jobs:
   bubble-frontend:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Playwright
       run: |
         cd bubble-frontend-mock
@@ -102,22 +102,46 @@ jobs:
         python3 scripts/run_all_tests.py
         docker-compose down
     - name: Upload Frontend Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: frontend-test-results
         path: bubble-frontend-mock/visual_baselines/
 
+  # Contract Testing
+  contract-testing:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install contract testing dependencies
+      run: |
+        cd contract-testing
+        pip install -r requirements.txt
+    - name: Run contract testing
+      run: |
+        cd contract-testing
+        python3 safe_integration.py
+        python3 test_safe_integration.py
+    - name: Upload Contract Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: contract-test-results
+        path: contract-testing/contracts/
+
   # Integration Tests (Cross-Component)
   integration-tests:
     runs-on: ubuntu-latest
-    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend]
+    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend, contract-testing]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run Integration Demo
       run: |
         python3 documentation/integration_demo.py
     - name: Upload Integration Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: integration-test-results
         path: integration_test_results.json
@@ -125,11 +149,11 @@ jobs:
   # Test Summary and Reporting
   test-summary:
     runs-on: ubuntu-latest
-    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend, integration-tests]
+    needs: [slack-integration, test-data-seeding, e2e-pipeline, monitoring-system, bubble-frontend, contract-testing, integration-tests]
     if: always()
     steps:
     - name: Download all artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         path: test-results/
     
@@ -193,7 +217,7 @@ jobs:
         cat test-summary.md
     
     - name: Upload Test Summary
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-summary
         path: test-summary.md

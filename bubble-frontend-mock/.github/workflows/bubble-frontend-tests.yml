@@ -28,8 +28,8 @@ jobs:
           - FLASK_ENV=test
           - CORS_ORIGINS=http://frontend:80
     
-    steps:
-    - uses: actions/checkout@v3
+        steps:
+        - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -71,7 +71,7 @@ jobs:
         python scripts/run_all_tests.py
     
     - name: Upload test reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bubble-frontend-test-reports
         path: |
@@ -82,7 +82,7 @@ jobs:
           bubble_test_results.json
     
     - name: Upload visual baselines
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: visual-baselines
         path: visual_baselines/

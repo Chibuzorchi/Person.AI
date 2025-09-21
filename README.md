@@ -124,6 +124,7 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **`e2e-testing/.github/workflows/e2e-tests.yml`** — End-to-end pipeline testing (daily at 4 AM)
 - **`monitoring-system/.github/workflows/monitoring-tests.yml`** — Monitoring system testing (every 6 hours)
 - **`bubble-frontend-mock/.github/workflows/bubble-frontend-tests.yml`** — Frontend testing (daily at 8 AM)
+- **`contract-testing/`** — Contract testing (integrated with master pipeline)
 
 #### **Master Orchestration Workflows**
 - **`.github/workflows/master-ci-cd.yml`** — Master pipeline that runs all components
@@ -135,7 +136,8 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **Scheduled Runs**: Different components run at different times for optimal resource usage
 
 ### **Test Coverage**
-- **72 Total Tests** across all components
+- **75+ Total Tests** across all components (including contract testing)
 - **100% Pass Rate** for all individual components
 - **Cross-component integration** testing
+- **Contract validation** and schema drift detection
 - **Automated reporting** and artifact generation

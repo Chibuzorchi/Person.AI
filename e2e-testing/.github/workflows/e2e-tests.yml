@@ -49,8 +49,8 @@ jobs:
           - DELIVERY_COUNT=18
           - HEALTH_CHECK_INTERVAL=30s
     
-    steps:
-    - uses: actions/checkout@v3
+        steps:
+        - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -86,7 +86,7 @@ jobs:
         python scripts/quick_demo.py
     
     - name: Upload test reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: e2e-test-reports
         path: |
@@ -94,7 +94,7 @@ jobs:
           output/
     
     - name: Upload generated audio files
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: e2e-audio-files
         path: output/*.wav
