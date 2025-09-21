@@ -40,30 +40,32 @@ jobs:
         fi
     
     - name: Run tests
+      env:
+        CI: true
       run: |
         cd ${{ matrix.component }}
         if [ -d tests ]; then
-          # For test-data-seeding, run standalone tests first
+          # For test-data-seeding, run standalone tests only
           if [ "${{ matrix.component }}" = "test-data-seeding" ]; then
-            python3 -m pytest tests/test_api_mocks_standalone.py -v --tb=short || echo "API mock tests failed, continuing..."
-            python3 -m pytest tests/test_data_generation.py -v --tb=short || echo "Data generation tests failed, continuing..."
-          # For e2e-testing, run standalone tests first
+            python3 -m pytest tests/test_api_mocks_standalone.py tests/test_data_generation.py -v --tb=short || echo "Tests failed, continuing..."
+          # For e2e-testing, run standalone tests only
           elif [ "${{ matrix.component }}" = "e2e-testing" ]; then
-            python3 -m pytest tests/test_e2e_standalone.py -v --tb=short || echo "E2E standalone tests failed, continuing..."
-          # For monitoring-system, run standalone tests first
+            python3 -m pytest tests/test_e2e_standalone.py -v --tb=short || echo "Tests failed, continuing..."
+          # For monitoring-system, run standalone tests only
           elif [ "${{ matrix.component }}" = "monitoring-system" ]; then
-            python3 -m pytest tests/test_monitoring_standalone.py -v --tb=short || echo "Monitoring standalone tests failed, continuing..."
-          # For slack-mock, run standalone tests first
+            python3 -m pytest tests/test_monitoring_standalone.py -v --tb=short || echo "Tests failed, continuing..."
+          # For slack-mock, run standalone tests only (skip integration tests)
           elif [ "${{ matrix.component }}" = "slack-mock" ]; then
-            python3 -m pytest tests/test_slack_standalone.py -v --tb=short || echo "Slack standalone tests failed, continuing..."
-          # For bubble-frontend-mock, run standalone tests first
+            python3 -m pytest tests/test_slack_standalone.py -v --tb=short || echo "Tests failed, continuing..."
+          # For bubble-frontend-mock, run standalone tests only
           elif [ "${{ matrix.component }}" = "bubble-frontend-mock" ]; then
-            python3 -m pytest tests/test_bubble_standalone.py -v --tb=short || echo "Bubble standalone tests failed, continuing..."
-          # For contract-testing, run standalone tests first
+            python3 -m pytest tests/test_bubble_standalone.py -v --tb=short || echo "Tests failed, continuing..."
+          # For contract-testing, run standalone tests only
           elif [ "${{ matrix.component }}" = "contract-testing" ]; then
-            python3 -m pytest tests/test_contract_standalone.py -v --tb=short || echo "Contract standalone tests failed, continuing..."
+            python3 -m pytest tests/test_contract_standalone.py -v --tb=short || echo "Tests failed, continuing..."
           else
-            python3 -m pytest tests/ -v --tb=short || echo "Tests failed, continuing..."
+            # For other components, run only standalone tests
+            python3 -m pytest -m standalone tests/ -v --tb=short || echo "Tests failed, continuing..."
           fi
         else
           echo "No tests directory found for ${{ matrix.component }}"

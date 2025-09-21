@@ -8,6 +8,14 @@ import asyncio
 import json
 import time
 import aiohttp
+import os
+
+# Mark all tests in this file as integration tests that require services
+pytestmark = pytest.mark.integration
+
+# Skip these tests if running in CI without Docker services
+if os.getenv('CI') and not os.getenv('DOCKER_SERVICES_RUNNING'):
+    pytestmark = pytest.mark.skip(reason="Integration tests require Docker services")
 
 class TestSimpleSlackIntegration:
     @pytest.fixture(autouse=True)

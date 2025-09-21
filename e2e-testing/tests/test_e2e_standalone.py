@@ -10,6 +10,9 @@ import os
 import asyncio
 from unittest.mock import Mock, patch
 
+# Mark all tests in this file as standalone
+pytestmark = pytest.mark.standalone
+
 # Add the parent directory to the path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 

@@ -9,6 +9,9 @@ from unittest.mock import Mock, patch
 import sys
 import os
 
+# Mark all tests in this file as standalone
+pytestmark = pytest.mark.standalone
+
 # Add the parent directory to the path so we can import the mock services
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'api_mocks'))
 

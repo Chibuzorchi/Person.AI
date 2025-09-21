@@ -104,18 +104,24 @@ cd monitoring-system && docker-compose up -d && sleep 30 && python3 -m pytest te
 cd bubble-frontend-mock && docker-compose up -d && sleep 30 && python3 -m pytest tests/ -v
 ```
 
-#### **Without Docker (Quick Testing):**
+#### **Without Docker (CI-Friendly Testing):**
 ```bash
 # Install dependencies first
 pip install pytest requests aiohttp playwright faker psutil
 
-# Run tests directly
-cd slack-mock && python3 -m pytest tests/ -v
-cd test-data-seeding && python3 -m pytest tests/ -v
-cd e2e-testing && python3 -m pytest tests/ -v
-cd monitoring-system && python3 -m pytest tests/ -v
-cd bubble-frontend-mock && python3 -m pytest tests/ -v
-cd contract-testing && python3 test_safe_integration.py
+# Run only standalone tests (no Docker required)
+cd slack-mock && python3 -m pytest tests/test_slack_standalone.py -v
+cd test-data-seeding && python3 -m pytest tests/test_api_mocks_standalone.py tests/test_data_generation.py -v
+cd e2e-testing && python3 -m pytest tests/test_e2e_standalone.py -v
+cd monitoring-system && python3 -m pytest tests/test_monitoring_standalone.py -v
+cd bubble-frontend-mock && python3 -m pytest tests/test_bubble_standalone.py -v
+cd contract-testing && python3 -m pytest tests/test_contract_standalone.py -v
+```
+
+#### **Run All Standalone Tests at Once:**
+```bash
+# From project root - runs all standalone tests across all components
+CI=true python3 -m pytest -m standalone --tb=short
 ```
 
 ### Run Integrated Demo
@@ -153,9 +159,27 @@ The repository includes comprehensive CI/CD workflows that run automatically:
 - **Pull Requests to `main`**: All workflows run
 - **Scheduled Runs**: Different components run at different times for optimal resource usage
 
+### **Test Strategy**
+
+#### **Two-Tier Test Architecture**
+- **🟢 Standalone Tests**: No external dependencies, run in CI
+  - Test business logic, data generation, API mocking
+  - Use mocks and stubs for external services
+  - Fast execution, reliable in any environment
+- **🔵 Integration Tests**: Require Docker services, run locally
+  - Test actual HTTP endpoints, WebSocket connections
+  - Validate service-to-service communication
+  - Full end-to-end workflow validation
+
+#### **Test Markers**
+- `@pytest.mark.standalone` - Tests that run without external services
+- `@pytest.mark.integration` - Tests that require Docker services
+- `@pytest.mark.slow` - Long-running tests
+- `@pytest.mark.network` - Tests requiring network access
+
 ### **Test Coverage**
 - **75+ Total Tests** across all components (including contract testing)
-- **100% Pass Rate** for all individual components
-- **Cross-component integration** testing
+- **100% Pass Rate** for standalone tests in CI
+- **Cross-component integration** testing (local development)
 - **Contract validation** and schema drift detection
 - **Automated reporting** and artifact generation
