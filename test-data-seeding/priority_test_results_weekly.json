@@ -4,7 +4,7 @@
   "passed": 142,
   "failed": 0,
   "success_rate": 1.0,
-  "total_duration": 0.8144593238830566,
+  "total_duration": 0.8129231929779053,
   "priority_stats": {
     "secondary": {
       "total": 142,
@@ -19,1505 +19,1370 @@
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10031414031982422,
+      "duration": 0.10086679458618164,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173239"
+      "timestamp": "2025-09-21T22:43:58.969327"
     },
     {
       "integration_name": "integration_002",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10033798217773438,
+      "duration": 0.10089111328125,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173269"
+      "timestamp": "2025-09-21T22:43:58.969367"
     },
     {
       "integration_name": "integration_003",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10034394264221191,
+      "duration": 0.10090398788452148,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173278"
+      "timestamp": "2025-09-21T22:43:58.969384"
     },
     {
       "integration_name": "integration_004",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10034823417663574,
+      "duration": 0.10091090202331543,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173284"
+      "timestamp": "2025-09-21T22:43:58.969395"
     },
     {
       "integration_name": "integration_005",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10034990310668945,
+      "duration": 0.10091495513916016,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173288"
+      "timestamp": "2025-09-21T22:43:58.969404"
     },
     {
       "integration_name": "integration_006",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10035181045532227,
+      "duration": 0.10092020034790039,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173292"
+      "timestamp": "2025-09-21T22:43:58.969411"
     },
     {
       "integration_name": "integration_007",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10035419464111328,
+      "duration": 0.10092401504516602,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173296"
+      "timestamp": "2025-09-21T22:43:58.969420"
     },
     {
       "integration_name": "integration_008",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10035586357116699,
+      "duration": 0.10092782974243164,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173300"
+      "timestamp": "2025-09-21T22:43:58.969428"
     },
     {
       "integration_name": "integration_009",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1003572940826416,
+      "duration": 0.10093402862548828,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173303"
+      "timestamp": "2025-09-21T22:43:58.969436"
     },
     {
       "integration_name": "integration_010",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1003580093383789,
+      "duration": 0.1009378433227539,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173307"
+      "timestamp": "2025-09-21T22:43:58.969444"
     },
     {
       "integration_name": "integration_011",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10035896301269531,
+      "duration": 0.10094332695007324,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173311"
+      "timestamp": "2025-09-21T22:43:58.969453"
     },
     {
       "integration_name": "integration_012",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036110877990723,
+      "duration": 0.10095000267028809,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173315"
+      "timestamp": "2025-09-21T22:43:58.969462"
     },
     {
       "integration_name": "integration_013",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036301612854004,
+      "duration": 0.10095477104187012,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173319"
+      "timestamp": "2025-09-21T22:43:58.969471"
     },
     {
       "integration_name": "integration_014",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036492347717285,
+      "duration": 0.10095882415771484,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173323"
+      "timestamp": "2025-09-21T22:43:58.969479"
     },
     {
       "integration_name": "integration_015",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036611557006836,
+      "duration": 0.10096192359924316,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173326"
+      "timestamp": "2025-09-21T22:43:58.969487"
     },
     {
       "integration_name": "integration_016",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036778450012207,
+      "duration": 0.10096597671508789,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173330"
+      "timestamp": "2025-09-21T22:43:58.969495"
     },
     {
       "integration_name": "integration_017",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10036993026733398,
+      "duration": 0.10097098350524902,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173334"
+      "timestamp": "2025-09-21T22:43:58.969503"
     },
     {
       "integration_name": "integration_018",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.100372314453125,
+      "duration": 0.10097670555114746,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173338"
+      "timestamp": "2025-09-21T22:43:58.969511"
     },
     {
       "integration_name": "integration_019",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10037398338317871,
+      "duration": 0.1009819507598877,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173342"
+      "timestamp": "2025-09-21T22:43:58.969519"
     },
     {
       "integration_name": "integration_020",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10037612915039062,
+      "duration": 0.10098600387573242,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.173346"
+      "timestamp": "2025-09-21T22:43:58.969528"
     },
     {
       "integration_name": "integration_021",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10150885581970215,
+      "duration": 0.10132670402526855,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.274989"
+      "timestamp": "2025-09-21T22:43:59.070894"
     },
     {
       "integration_name": "integration_022",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1015939712524414,
+      "duration": 0.10134506225585938,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275120"
+      "timestamp": "2025-09-21T22:43:59.070933"
     },
     {
       "integration_name": "integration_023",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.101593017578125,
+      "duration": 0.10134506225585938,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275125"
+      "timestamp": "2025-09-21T22:43:59.070942"
     },
     {
       "integration_name": "integration_024",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10162496566772461,
+      "duration": 0.10134768486022949,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275162"
+      "timestamp": "2025-09-21T22:43:59.070950"
     },
     {
       "integration_name": "integration_025",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10166621208190918,
+      "duration": 0.1013491153717041,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275205"
+      "timestamp": "2025-09-21T22:43:59.070956"
     },
     {
       "integration_name": "integration_026",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10167622566223145,
+      "duration": 0.1013498306274414,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275218"
+      "timestamp": "2025-09-21T22:43:59.070962"
     },
     {
       "integration_name": "integration_027",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10168004035949707,
+      "duration": 0.10135126113891602,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275224"
+      "timestamp": "2025-09-21T22:43:59.070969"
     },
     {
       "integration_name": "integration_028",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10168194770812988,
+      "duration": 0.10135197639465332,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275230"
+      "timestamp": "2025-09-21T22:43:59.070975"
     },
     {
       "integration_name": "integration_029",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10176491737365723,
+      "duration": 0.10148811340332031,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275315"
+      "timestamp": "2025-09-21T22:43:59.071118"
     },
     {
       "integration_name": "integration_030",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10176801681518555,
+      "duration": 0.10150790214538574,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275321"
+      "timestamp": "2025-09-21T22:43:59.071142"
     },
     {
       "integration_name": "integration_031",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10176992416381836,
+      "duration": 0.10151815414428711,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275326"
+      "timestamp": "2025-09-21T22:43:59.071156"
     },
     {
       "integration_name": "integration_032",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1017751693725586,
+      "duration": 0.10152292251586914,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275333"
+      "timestamp": "2025-09-21T22:43:59.071167"
     },
     {
       "integration_name": "integration_033",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10177898406982422,
+      "duration": 0.10152888298034668,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275339"
+      "timestamp": "2025-09-21T22:43:59.071177"
     },
     {
       "integration_name": "integration_034",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178112983703613,
+      "duration": 0.1015329360961914,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275344"
+      "timestamp": "2025-09-21T22:43:59.071187"
     },
     {
       "integration_name": "integration_035",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178208351135254,
+      "duration": 0.10153770446777344,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275348"
+      "timestamp": "2025-09-21T22:43:59.071197"
     },
     {
       "integration_name": "integration_036",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178399085998535,
+      "duration": 0.10154104232788086,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275352"
+      "timestamp": "2025-09-21T22:43:59.071205"
     },
     {
       "integration_name": "integration_037",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178470611572266,
+      "duration": 0.10154604911804199,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275356"
+      "timestamp": "2025-09-21T22:43:59.071214"
     },
     {
       "integration_name": "integration_038",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178804397583008,
+      "duration": 0.10155010223388672,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275361"
+      "timestamp": "2025-09-21T22:43:59.071225"
     },
     {
       "integration_name": "integration_039",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10178995132446289,
+      "duration": 0.10155487060546875,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275367"
+      "timestamp": "2025-09-21T22:43:59.071234"
     },
     {
       "integration_name": "integration_040",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10179495811462402,
+      "duration": 0.1015632152557373,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.275373"
+      "timestamp": "2025-09-21T22:43:59.071247"
     },
     {
       "integration_name": "integration_041",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10123014450073242,
+      "duration": 0.10119295120239258,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376639"
+      "timestamp": "2025-09-21T22:43:59.172506"
     },
     {
       "integration_name": "integration_042",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10124778747558594,
+      "duration": 0.10121798515319824,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376683"
+      "timestamp": "2025-09-21T22:43:59.172562"
     },
     {
       "integration_name": "integration_043",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1012580394744873,
+      "duration": 0.10122299194335938,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376697"
+      "timestamp": "2025-09-21T22:43:59.172575"
     },
     {
       "integration_name": "integration_044",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10126781463623047,
+      "duration": 0.10122990608215332,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376709"
+      "timestamp": "2025-09-21T22:43:59.172588"
     },
     {
       "integration_name": "integration_045",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10127806663513184,
+      "duration": 0.10123896598815918,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376722"
+      "timestamp": "2025-09-21T22:43:59.172602"
     },
     {
       "integration_name": "integration_046",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1012868881225586,
+      "duration": 0.10124516487121582,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376734"
+      "timestamp": "2025-09-21T22:43:59.172614"
     },
     {
       "integration_name": "integration_047",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10129690170288086,
+      "duration": 0.10125303268432617,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376746"
+      "timestamp": "2025-09-21T22:43:59.172627"
     },
     {
       "integration_name": "integration_048",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10130596160888672,
+      "duration": 0.10125994682312012,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376757"
+      "timestamp": "2025-09-21T22:43:59.172639"
     },
     {
       "integration_name": "integration_049",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10131406784057617,
+      "duration": 0.10126709938049316,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376769"
+      "timestamp": "2025-09-21T22:43:59.172652"
     },
     {
       "integration_name": "integration_050",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10132312774658203,
+      "duration": 0.1012730598449707,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376780"
+      "timestamp": "2025-09-21T22:43:59.172664"
     },
     {
       "integration_name": "integration_051",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1013329029083252,
+      "duration": 0.10127902030944824,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376792"
+      "timestamp": "2025-09-21T22:43:59.172676"
     },
     {
       "integration_name": "integration_052",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10134077072143555,
+      "duration": 0.10128498077392578,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376803"
+      "timestamp": "2025-09-21T22:43:59.172688"
     },
     {
       "integration_name": "integration_053",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1013493537902832,
+      "duration": 0.10129189491271973,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376814"
+      "timestamp": "2025-09-21T22:43:59.172701"
     },
     {
       "integration_name": "integration_054",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10135817527770996,
+      "duration": 0.10130000114440918,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376826"
+      "timestamp": "2025-09-21T22:43:59.172716"
     },
     {
       "integration_name": "integration_055",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10136604309082031,
+      "duration": 0.10130715370178223,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376837"
+      "timestamp": "2025-09-21T22:43:59.172728"
     },
     {
       "integration_name": "integration_056",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10137510299682617,
+      "duration": 0.10131382942199707,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376848"
+      "timestamp": "2025-09-21T22:43:59.172741"
     },
     {
       "integration_name": "integration_057",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10138297080993652,
+      "duration": 0.10132002830505371,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376859"
+      "timestamp": "2025-09-21T22:43:59.172753"
     },
     {
       "integration_name": "integration_058",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10139107704162598,
+      "duration": 0.10124969482421875,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376869"
+      "timestamp": "2025-09-21T22:43:59.172765"
     },
     {
       "integration_name": "integration_059",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10139918327331543,
+      "duration": 0.10095572471618652,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376880"
+      "timestamp": "2025-09-21T22:43:59.172778"
     },
     {
       "integration_name": "integration_060",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1014101505279541,
+      "duration": 0.1008608341217041,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.376894"
+      "timestamp": "2025-09-21T22:43:59.172791"
     },
     {
       "integration_name": "integration_061",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10104489326477051,
+      "duration": 0.10175395011901855,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.477982"
+      "timestamp": "2025-09-21T22:43:59.274589"
     },
     {
       "integration_name": "integration_062",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1010587215423584,
+      "duration": 0.10178089141845703,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478012"
+      "timestamp": "2025-09-21T22:43:59.274642"
     },
     {
       "integration_name": "integration_063",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10105395317077637,
+      "duration": 0.10178613662719727,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478018"
+      "timestamp": "2025-09-21T22:43:59.274658"
     },
     {
       "integration_name": "integration_064",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10105085372924805,
+      "duration": 0.10179018974304199,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478023"
+      "timestamp": "2025-09-21T22:43:59.274672"
     },
     {
       "integration_name": "integration_065",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10105228424072266,
+      "duration": 0.10179495811462402,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478031"
+      "timestamp": "2025-09-21T22:43:59.274685"
     },
     {
       "integration_name": "integration_066",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10104894638061523,
+      "duration": 0.10179996490478516,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478036"
+      "timestamp": "2025-09-21T22:43:59.274698"
     },
     {
       "integration_name": "integration_067",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10104703903198242,
+      "duration": 0.1018071174621582,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478041"
+      "timestamp": "2025-09-21T22:43:59.274712"
     },
     {
       "integration_name": "integration_068",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1010429859161377,
+      "duration": 0.10181188583374023,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478045"
+      "timestamp": "2025-09-21T22:43:59.274725"
     },
     {
       "integration_name": "integration_069",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10104107856750488,
+      "duration": 0.10181570053100586,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478050"
+      "timestamp": "2025-09-21T22:43:59.274738"
     },
     {
       "integration_name": "integration_070",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10103678703308105,
+      "duration": 0.1018209457397461,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478054"
+      "timestamp": "2025-09-21T22:43:59.274751"
     },
     {
       "integration_name": "integration_071",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10103416442871094,
+      "duration": 0.10182499885559082,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478058"
+      "timestamp": "2025-09-21T22:43:59.274763"
     },
     {
       "integration_name": "integration_072",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10103130340576172,
+      "duration": 0.10183119773864746,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478063"
+      "timestamp": "2025-09-21T22:43:59.274776"
     },
     {
       "integration_name": "integration_073",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1010289192199707,
+      "duration": 0.10183405876159668,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478067"
+      "timestamp": "2025-09-21T22:43:59.274788"
     },
     {
       "integration_name": "integration_074",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10102486610412598,
+      "duration": 0.10183906555175781,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478071"
+      "timestamp": "2025-09-21T22:43:59.274801"
     },
     {
       "integration_name": "integration_075",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10102176666259766,
+      "duration": 0.10184407234191895,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478076"
+      "timestamp": "2025-09-21T22:43:59.274814"
     },
     {
       "integration_name": "integration_076",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10101985931396484,
+      "duration": 0.10185003280639648,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478080"
+      "timestamp": "2025-09-21T22:43:59.274828"
     },
     {
       "integration_name": "integration_077",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10101699829101562,
+      "duration": 0.10185384750366211,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478084"
+      "timestamp": "2025-09-21T22:43:59.274840"
     },
     {
       "integration_name": "integration_078",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1010129451751709,
+      "duration": 0.10185813903808594,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478089"
+      "timestamp": "2025-09-21T22:43:59.274852"
     },
     {
       "integration_name": "integration_079",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10101103782653809,
+      "duration": 0.10186195373535156,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478093"
+      "timestamp": "2025-09-21T22:43:59.274864"
     },
     {
       "integration_name": "integration_080",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10100793838500977,
+      "duration": 0.1018669605255127,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.478098"
+      "timestamp": "2025-09-21T22:43:59.274877"
     },
     {
       "integration_name": "integration_081",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10048413276672363,
+      "duration": 0.1012108325958252,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578608"
+      "timestamp": "2025-09-21T22:43:59.376152"
     },
     {
       "integration_name": "integration_082",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10049581527709961,
+      "duration": 0.10123419761657715,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578634"
+      "timestamp": "2025-09-21T22:43:59.376195"
     },
     {
       "integration_name": "integration_083",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10049986839294434,
+      "duration": 0.1012427806854248,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578643"
+      "timestamp": "2025-09-21T22:43:59.376209"
     },
     {
       "integration_name": "integration_084",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10050296783447266,
+      "duration": 0.10125279426574707,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578650"
+      "timestamp": "2025-09-21T22:43:59.376222"
     },
     {
       "integration_name": "integration_085",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10050797462463379,
+      "duration": 0.10126209259033203,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578656"
+      "timestamp": "2025-09-21T22:43:59.376235"
     },
     {
       "integration_name": "integration_086",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1005098819732666,
+      "duration": 0.10127091407775879,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578663"
+      "timestamp": "2025-09-21T22:43:59.376247"
     },
     {
       "integration_name": "integration_087",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10051417350769043,
+      "duration": 0.10127997398376465,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578669"
+      "timestamp": "2025-09-21T22:43:59.376259"
     },
     {
       "integration_name": "integration_088",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10051679611206055,
+      "duration": 0.10128998756408691,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578675"
+      "timestamp": "2025-09-21T22:43:59.376271"
     },
     {
       "integration_name": "integration_089",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10052227973937988,
+      "duration": 0.10129880905151367,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578682"
+      "timestamp": "2025-09-21T22:43:59.376285"
     },
     {
       "integration_name": "integration_090",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10053014755249023,
+      "duration": 0.10131621360778809,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578694"
+      "timestamp": "2025-09-21T22:43:59.376305"
     },
     {
       "integration_name": "integration_091",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10053491592407227,
+      "duration": 0.10132789611816406,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578701"
+      "timestamp": "2025-09-21T22:43:59.376319"
     },
     {
       "integration_name": "integration_092",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10053777694702148,
+      "duration": 0.10133695602416992,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578707"
+      "timestamp": "2025-09-21T22:43:59.376331"
     },
     {
       "integration_name": "integration_093",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10054135322570801,
+      "duration": 0.10134506225585938,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578713"
+      "timestamp": "2025-09-21T22:43:59.376342"
     },
     {
       "integration_name": "integration_094",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10054397583007812,
+      "duration": 0.10135483741760254,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578719"
+      "timestamp": "2025-09-21T22:43:59.376354"
     },
     {
       "integration_name": "integration_095",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10054707527160645,
+      "duration": 0.1013641357421875,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578726"
+      "timestamp": "2025-09-21T22:43:59.376366"
     },
     {
       "integration_name": "integration_096",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10055088996887207,
+      "duration": 0.10137319564819336,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578732"
+      "timestamp": "2025-09-21T22:43:59.376379"
     },
     {
       "integration_name": "integration_097",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1005549430847168,
+      "duration": 0.10138201713562012,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578738"
+      "timestamp": "2025-09-21T22:43:59.376391"
     },
     {
       "integration_name": "integration_098",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10055923461914062,
+      "duration": 0.10139179229736328,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578745"
+      "timestamp": "2025-09-21T22:43:59.376404"
     },
     {
       "integration_name": "integration_099",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10056209564208984,
+      "duration": 0.10140180587768555,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578752"
+      "timestamp": "2025-09-21T22:43:59.376416"
     },
     {
       "integration_name": "integration_100",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10056686401367188,
+      "duration": 0.10141110420227051,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.578758"
+      "timestamp": "2025-09-21T22:43:59.376427"
     },
     {
       "integration_name": "integration_101",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10114407539367676,
+      "duration": 0.10123801231384277,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679933"
+      "timestamp": "2025-09-21T22:43:59.477712"
     },
     {
       "integration_name": "integration_102",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1011650562286377,
+      "duration": 0.1012730598449707,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679968"
+      "timestamp": "2025-09-21T22:43:59.477763"
     },
     {
       "integration_name": "integration_103",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10116791725158691,
+      "duration": 0.10127592086791992,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679977"
+      "timestamp": "2025-09-21T22:43:59.477777"
     },
     {
       "integration_name": "integration_104",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10117220878601074,
+      "duration": 0.10127997398376465,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679984"
+      "timestamp": "2025-09-21T22:43:59.477792"
     },
     {
       "integration_name": "integration_105",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10117506980895996,
+      "duration": 0.101287841796875,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679992"
+      "timestamp": "2025-09-21T22:43:59.477805"
     },
     {
       "integration_name": "integration_106",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10117793083190918,
+      "duration": 0.10129094123840332,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.679999"
+      "timestamp": "2025-09-21T22:43:59.477816"
     },
     {
       "integration_name": "integration_107",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1011800765991211,
+      "duration": 0.10129499435424805,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680006"
+      "timestamp": "2025-09-21T22:43:59.477827"
     },
     {
       "integration_name": "integration_108",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10118293762207031,
+      "duration": 0.10129809379577637,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680012"
+      "timestamp": "2025-09-21T22:43:59.477839"
     },
     {
       "integration_name": "integration_109",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10118508338928223,
+      "duration": 0.1013021469116211,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680019"
+      "timestamp": "2025-09-21T22:43:59.477850"
     },
     {
       "integration_name": "integration_110",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10118913650512695,
+      "duration": 0.10130620002746582,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680025"
+      "timestamp": "2025-09-21T22:43:59.477862"
     },
     {
       "integration_name": "integration_111",
       "connector_type": "communication",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10119199752807617,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680032"
-    },
-    {
-      "integration_name": "integration_112",
-      "connector_type": "productivity",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10119509696960449,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680039"
-    },
-    {
-      "integration_name": "integration_113",
-      "connector_type": "crm",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.1011972427368164,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680045"
-    },
-    {
-      "integration_name": "integration_114",
-      "connector_type": "accounting",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10119986534118652,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680052"
-    },
-    {
-      "integration_name": "integration_115",
-      "connector_type": "marketing",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10120201110839844,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680059"
-    },
-    {
-      "integration_name": "integration_116",
-      "connector_type": "support",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10120487213134766,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680065"
-    },
-    {
-      "integration_name": "integration_117",
-      "connector_type": "project_management",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10120606422424316,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680072"
-    },
-    {
-      "integration_name": "integration_118",
-      "connector_type": "communication",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10120892524719238,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680078"
-    },
-    {
-      "integration_name": "integration_119",
-      "connector_type": "productivity",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.1012117862701416,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680085"
-    },
-    {
-      "integration_name": "integration_120",
-      "connector_type": "crm",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10121488571166992,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.680092"
-    },
-    {
-      "integration_name": "integration_121",
-      "connector_type": "accounting",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10124802589416504,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781380"
-    },
-    {
-      "integration_name": "integration_122",
-      "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
       "duration": 0.10131096839904785,
@@ -1526,24 +1391,133 @@
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781451"
+      "timestamp": "2025-09-21T22:43:59.477877"
     },
     {
-      "integration_name": "integration_123",
-      "connector_type": "support",
+      "integration_name": "integration_112",
+      "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10132002830505371,
+      "duration": 0.1013181209564209,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781468"
+      "timestamp": "2025-09-21T22:43:59.477890"
     },
     {
-      "integration_name": "integration_124",
+      "integration_name": "integration_113",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10132098197937012,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477901"
+    },
+    {
+      "integration_name": "integration_114",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10132408142089844,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477912"
+    },
+    {
+      "integration_name": "integration_115",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10132813453674316,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477923"
+    },
+    {
+      "integration_name": "integration_116",
+      "connector_type": "support",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10133194923400879,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477935"
+    },
+    {
+      "integration_name": "integration_117",
       "connector_type": "project_management",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.1013340950012207,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477946"
+    },
+    {
+      "integration_name": "integration_118",
+      "connector_type": "communication",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10133790969848633,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477957"
+    },
+    {
+      "integration_name": "integration_119",
+      "connector_type": "productivity",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10134196281433105,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477969"
+    },
+    {
+      "integration_name": "integration_120",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10134673118591309,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.477981"
+    },
+    {
+      "integration_name": "integration_121",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10128998756408691,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579315"
+    },
+    {
+      "integration_name": "integration_122",
+      "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
       "duration": 0.10132884979248047,
@@ -1552,111 +1526,211 @@
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781481"
+      "timestamp": "2025-09-21T22:43:59.579382"
+    },
+    {
+      "integration_name": "integration_123",
+      "connector_type": "support",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10133981704711914,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579404"
+    },
+    {
+      "integration_name": "integration_124",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.1013498306274414,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579421"
     },
     {
       "integration_name": "integration_125",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10133719444274902,
+      "duration": 0.10135912895202637,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781493"
+      "timestamp": "2025-09-21T22:43:59.579437"
     },
     {
       "integration_name": "integration_126",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10134291648864746,
+      "duration": 0.1013648509979248,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781504"
+      "timestamp": "2025-09-21T22:43:59.579453"
     },
     {
       "integration_name": "integration_127",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1013498306274414,
+      "duration": 0.10137176513671875,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781515"
+      "timestamp": "2025-09-21T22:43:59.579467"
     },
     {
       "integration_name": "integration_128",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10135602951049805,
+      "duration": 0.10137701034545898,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781526"
+      "timestamp": "2025-09-21T22:43:59.579480"
     },
     {
       "integration_name": "integration_129",
       "connector_type": "marketing",
       "priority": "secondary",
       "success": true,
-      "duration": 0.1013638973236084,
+      "duration": 0.10138511657714844,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781538"
+      "timestamp": "2025-09-21T22:43:59.579495"
     },
     {
       "integration_name": "integration_130",
       "connector_type": "support",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10137104988098145,
+      "duration": 0.10139298439025879,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781549"
+      "timestamp": "2025-09-21T22:43:59.579510"
     },
     {
       "integration_name": "integration_131",
       "connector_type": "project_management",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10144591331481934,
+      "duration": 0.10139894485473633,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781629"
+      "timestamp": "2025-09-21T22:43:59.579525"
     },
     {
       "integration_name": "integration_132",
       "connector_type": "communication",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10145807266235352,
+      "duration": 0.10140681266784668,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781645"
+      "timestamp": "2025-09-21T22:43:59.579539"
     },
     {
       "integration_name": "integration_133",
       "connector_type": "productivity",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10141301155090332,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579553"
+    },
+    {
+      "integration_name": "integration_134",
+      "connector_type": "crm",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10141992568969727,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579568"
+    },
+    {
+      "integration_name": "integration_135",
+      "connector_type": "accounting",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.1014258861541748,
+      "errors": [],
+      "warnings": [],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579581"
+    },
+    {
+      "integration_name": "integration_136",
+      "connector_type": "marketing",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10143423080444336,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579597"
+    },
+    {
+      "integration_name": "integration_137",
+      "connector_type": "support",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10144209861755371,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579611"
+    },
+    {
+      "integration_name": "integration_138",
+      "connector_type": "project_management",
+      "priority": "secondary",
+      "success": true,
+      "duration": 0.10144996643066406,
+      "errors": [],
+      "warnings": [
+        "Slow response"
+      ],
+      "test_data_count": 50,
+      "timestamp": "2025-09-21T22:43:59.579626"
+    },
+    {
+      "integration_name": "integration_139",
+      "connector_type": "communication",
       "priority": "secondary",
       "success": true,
       "duration": 0.10146617889404297,
@@ -1665,116 +1739,42 @@
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781657"
-    },
-    {
-      "integration_name": "integration_134",
-      "connector_type": "crm",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10147285461425781,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781668"
-    },
-    {
-      "integration_name": "integration_135",
-      "connector_type": "accounting",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10147905349731445,
-      "errors": [],
-      "warnings": [],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781679"
-    },
-    {
-      "integration_name": "integration_136",
-      "connector_type": "marketing",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.1014862060546875,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781691"
-    },
-    {
-      "integration_name": "integration_137",
-      "connector_type": "support",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10149383544921875,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781703"
-    },
-    {
-      "integration_name": "integration_138",
-      "connector_type": "project_management",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.1015009880065918,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781714"
-    },
-    {
-      "integration_name": "integration_139",
-      "connector_type": "communication",
-      "priority": "secondary",
-      "success": true,
-      "duration": 0.10150790214538574,
-      "errors": [],
-      "warnings": [
-        "Slow response"
-      ],
-      "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781725"
+      "timestamp": "2025-09-21T22:43:59.579649"
     },
     {
       "integration_name": "integration_140",
       "connector_type": "productivity",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10151505470275879,
+      "duration": 0.10147404670715332,
       "errors": [],
       "warnings": [
         "Slow response"
       ],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.781736"
+      "timestamp": "2025-09-21T22:43:59.579664"
     },
     {
       "integration_name": "integration_141",
       "connector_type": "crm",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10499811172485352,
+      "duration": 0.10116100311279297,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.886788"
+      "timestamp": "2025-09-21T22:43:59.680880"
     },
     {
       "integration_name": "integration_142",
       "connector_type": "accounting",
       "priority": "secondary",
       "success": true,
-      "duration": 0.10503506660461426,
+      "duration": 0.10114789009094238,
       "errors": [],
       "warnings": [],
       "test_data_count": 50,
-      "timestamp": "2025-09-21T11:07:42.886863"
+      "timestamp": "2025-09-21T22:43:59.680916"
     }
   ]
 }

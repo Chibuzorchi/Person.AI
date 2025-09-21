@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2025-09-21T22:52:16.116919",
+    "service_name": "integration-controller",
+    "endpoint": "/health",
+    "has_drift": false,
+    "drift_score": 0.0,
+    "breaking_changes": 0,
+    "non_breaking_changes": 0,
+    "changes": []
+  },
+  {
+    "timestamp": "2025-09-21T22:52:16.117225",
+    "service_name": "integration-controller",
+    "endpoint": "/metrics",
+    "has_drift": false,
+    "drift_score": 0.0,
+    "breaking_changes": 0,
+    "non_breaking_changes": 0,
+    "changes": []
+  },
+  {
+    "timestamp": "2025-09-21T22:52:16.117361",
+    "service_name": "integration-controller",
+    "endpoint": "/audit",
+    "has_drift": false,
+    "drift_score": 0.0,
+    "breaking_changes": 0,
+    "non_breaking_changes": 0,
+    "changes": []
+  }
+]

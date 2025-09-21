@@ -4,7 +4,7 @@
   "passed": 4,
   "failed": 0,
   "success_rate": 1.0,
-  "total_duration": 0.10137701034545898,
+  "total_duration": 0.10120701789855957,
   "priority_stats": {
     "critical": {
       "total": 4,
@@ -19,44 +19,44 @@
       "connector_type": "accounting",
       "priority": "critical",
       "success": true,
-      "duration": 0.10117912292480469,
+      "duration": 0.1010901927947998,
       "errors": [],
       "warnings": [],
       "test_data_count": 200,
-      "timestamp": "2025-09-21T11:07:41.970262"
+      "timestamp": "2025-09-21T22:43:58.765704"
     },
     {
       "integration_name": "salesforce",
       "connector_type": "crm",
       "priority": "critical",
       "success": true,
-      "duration": 0.10119986534118652,
+      "duration": 0.10110092163085938,
       "errors": [],
       "warnings": [],
       "test_data_count": 200,
-      "timestamp": "2025-09-21T11:07:41.970292"
+      "timestamp": "2025-09-21T22:43:58.765724"
     },
     {
       "integration_name": "slack",
       "connector_type": "messaging",
       "priority": "critical",
       "success": true,
-      "duration": 0.10120081901550293,
+      "duration": 0.10109996795654297,
       "errors": [],
       "warnings": [],
       "test_data_count": 200,
-      "timestamp": "2025-09-21T11:07:41.970299"
+      "timestamp": "2025-09-21T22:43:58.765729"
     },
     {
       "integration_name": "gmail",
       "connector_type": "email",
       "priority": "critical",
       "success": true,
-      "duration": 0.10119986534118652,
+      "duration": 0.10109996795654297,
       "errors": [],
       "warnings": [],
       "test_data_count": 200,
-      "timestamp": "2025-09-21T11:07:41.970302"
+      "timestamp": "2025-09-21T22:43:58.765733"
     }
   ]
 }
