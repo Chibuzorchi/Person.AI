@@ -1,7 +1,5 @@
 # 🚀 Person.ai Testing System - Complete Walkthrough
 
-*This document explains each testing component for live demo purposes. Perfect for walking through the system during interviews.*
-
 ---
 
 ## 📋 Table of Contents

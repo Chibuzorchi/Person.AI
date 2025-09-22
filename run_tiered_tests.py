@@ -64,8 +64,11 @@ class TieredTestRunner:
         commands = [
             ("pytest -m 'tier1_critical and standalone' -v", "slack-mock", "tier1"),
             ("pytest -m 'tier1_critical and standalone' -v", "e2e-testing", "tier1"),
-            ("pytest -m 'tier1_critical and integration' -v", "slack-mock", "tier1_integration"),
         ]
+        
+        # Only run integration tests if not in CI or if Docker is available
+        if not os.getenv('CI') or os.getenv('DOCKER_SERVICES_RUNNING'):
+            commands.append(("pytest -m 'tier1_critical and integration' -v", "slack-mock", "tier1_integration"))
         
         if parallel:
             with ThreadPoolExecutor(max_workers=3) as executor:

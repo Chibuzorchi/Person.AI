@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         component: [slack-mock, e2e-testing]
-        test-type: [standalone, integration]
+        test-type: [standalone]
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -26,7 +26,7 @@ jobs:
         python-version: '3.9'
     - name: Install dependencies
       run: |
-        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary websockets aiohttp
     - name: Run Tier 1 Critical Tests
       run: |
         cd ${{ matrix.component }}
@@ -54,7 +54,7 @@ jobs:
         python-version: '3.9'
     - name: Install dependencies
       run: |
-        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary websockets aiohttp
     - name: Run Tier 2 Important Tests
       run: |
         cd ${{ matrix.component }}
@@ -82,7 +82,7 @@ jobs:
         python-version: '3.9'
     - name: Install dependencies
       run: |
-        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary playwright
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary websockets aiohttp playwright
     - name: Run Tier 3 Secondary Tests
       run: |
         cd ${{ matrix.component }}
@@ -107,7 +107,7 @@ jobs:
         python-version: '3.9'
     - name: Install dependencies
       run: |
-        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary playwright
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary websockets aiohttp playwright
     - name: Run Parallel Tests
       run: |
         python run_tiered_tests.py --tier all --parallel
