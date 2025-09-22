@@ -28,7 +28,7 @@ class ContentEngineMock:
         
         return {
             'text_content': text_content,
-            # 'audio_script': audio_script,  
+            'audio_script': audio_script,  
             'metadata': {
                 'generation_time': time.time(),
                 'email_count': len(emails),
