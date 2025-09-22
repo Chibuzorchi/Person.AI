@@ -70,7 +70,8 @@ class TestE2EPipeline:
         data = response.json()
         assert 'content' in data
         assert 'text_content' in data['content']
-        assert 'audio_script' in data['content']
+        # DEMO: This will fail because audio_script is commented out in content engine
+        assert 'audio_script' in data['content'], "audio_script missing - content engine has it commented out for demo"
     
     def test_audio_generation(self):
         """Test audio generation"""
@@ -117,6 +118,10 @@ class TestE2EPipeline:
     async def test_complete_e2e_pipeline(self):
         """Test complete E2E pipeline"""
         runner = E2ETestRunner()
+        
+        # DEMO: Add artificial delay to make test fail on duration
+        import time
+        time.sleep(2)  # This will make duration longer but not hang the demo
         
         # Wait for services
         assert runner.wait_for_services(timeout=30)

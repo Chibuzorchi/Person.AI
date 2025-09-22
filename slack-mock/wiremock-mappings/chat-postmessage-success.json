@@ -28,6 +28,7 @@
       "ok": true,
       "channel": "{{jsonPath request.body '$.channel'}}",
       "ts": "{{now 'epoch'}}.{{randomValue length=6 type='NUMERIC'}}",
+      "thread_ts": "{{now 'epoch'}}.{{randomValue length=6 type='NUMERIC'}}",
       "message": {
         "type": "message",
         "subtype": "bot_message",
@@ -35,7 +36,8 @@
         "ts": "{{now 'epoch'}}.{{randomValue length=6 type='NUMERIC'}}",
         "username": "Person.ai Bot",
         "bot_id": "B{{randomValue length=8 type='ALPHANUMERIC'}}"
-      }
+      },
+      "new_optional_field": "some_test_value"
     }
   }
 }

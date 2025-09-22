@@ -1,0 +1,46 @@
+{
+  "connector_type": "notion",
+  "endpoint": "/v1/pages",
+  "method": "GET",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "object": {
+        "type": "string"
+      },
+      "results": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "created_time": {
+              "type": "string"
+            },
+            "last_edited_time": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object"
+            }
+          },
+          "required": ["id", "created_time", "last_edited_time"]
+        }
+      },
+      "next_cursor": {
+        "type": "string"
+      },
+      "has_more": {
+        "type": "boolean"
+      }
+    },
+    "required": ["object", "results"]
+  },
+  "version": "1.0.0",
+  "last_updated": "2024-01-15T10:00:00+00:00",
+  "priority": "important",
+  "breaking_changes": [],
+  "non_breaking_changes": []
+}

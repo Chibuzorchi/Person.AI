@@ -23,6 +23,7 @@ class ConnectorType(Enum):
     SLACK = "slack"
     QUICKBOOKS = "quickbooks"
     SALESFORCE = "salesforce"
+    NOTION = "notion"
 
 class Priority(Enum):
     CRITICAL = "critical"      # Test on every run
@@ -147,7 +148,10 @@ class SchemaValidator:
             
             # Check for breaking changes
             breaking_changes = self._detect_breaking_changes(contract, response_data)
+            breaking_changes.extend(self._detect_breaking_changes_new_fields(contract, response_data))  
+
             non_breaking_changes = self._detect_non_breaking_changes(contract, response_data)
+            non_breaking_changes.extend(self._detect_non_breaking_changes_new_fields(contract, response_data))  
             
             response_time = time.time() - start_time
             schema_hash = self._calculate_schema_hash(contract.schema)
@@ -215,8 +219,40 @@ class SchemaValidator:
         new_fields = response_fields - schema_fields
         for field in new_fields:
             non_breaking_changes.append(f"New field added: {field}")
+            # breaking_changes.append(f"New field added: {field}")
         
         return non_breaking_changes
+
+
+    def _detect_breaking_changes_new_fields(self, contract: SchemaContract, response_data: Dict[str, Any]) -> List[str]:
+        """Detect breaking changes for new fields (toggleable)"""
+        breaking_changes = []
+        
+        # Check for new fields
+        schema_fields = self._get_all_fields(contract.schema)
+        response_fields = self._get_all_fields(response_data)
+        
+        new_fields = response_fields - schema_fields
+        for field in new_fields:
+            breaking_changes.append(f"New field added: {field}") 
+        
+        return breaking_changes
+
+
+    def _detect_non_breaking_changes_new_fields(self, contract: SchemaContract, response_data: Dict[str, Any]) -> List[str]:
+        """Detect non-breaking changes for new fields (toggleable)"""
+        non_breaking_changes = []
+        
+        # Check for new fields
+        schema_fields = self._get_all_fields(contract.schema)
+        response_fields = self._get_all_fields(response_data)
+        
+        new_fields = response_fields - schema_fields
+        for field in new_fields:
+            non_breaking_changes.append(f"New field added: {field}") 
+        
+        return non_breaking_changes  
+
     
     def _get_required_fields(self, schema: Dict[str, Any]) -> List[str]:
         """Extract required fields from JSON schema"""

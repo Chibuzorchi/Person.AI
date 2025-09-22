@@ -28,13 +28,13 @@ class ContentEngineMock:
         
         return {
             'text_content': text_content,
-            'audio_script': audio_script,
+            # 'audio_script': audio_script,  
             'metadata': {
                 'generation_time': time.time(),
                 'email_count': len(emails),
                 'confidence_score': 0.85,
                 'model': 'gpt-4-mock',
-                'tokens_used': len(text_content) + len(audio_script)
+                'tokens_used': len(text_content)  
             }
         }
     

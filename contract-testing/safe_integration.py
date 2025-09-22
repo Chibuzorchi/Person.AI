@@ -116,6 +116,34 @@ class SafeContractTester:
                 "error": str(e)
             }
     
+    def test_notion_contracts(self, base_url="http://localhost:5002"):
+        """Test Notion contracts using advanced system"""
+        if not self.advanced_available:
+            return {
+                "success": False,
+                "method": "fallback",
+                "error": "Advanced contract testing not available"
+            }
+        
+        try:
+            results = self.runner.run_contract_tests(
+                ConnectorType.NOTION, 
+                base_url, 
+                Priority.IMPORTANT
+            )
+    
+            return {
+                "success": True,
+                "method": "advanced",
+                "results": results
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "method": "advanced",
+                "error": str(e)
+            }
+    
     def _fallback_slack_test(self):
         """Fallback to simple contract testing for Slack"""
         try:
@@ -160,7 +188,8 @@ class SafeContractTester:
         results = {
             "slack": self.test_slack_contracts(),
             "quickbooks": self.test_quickbooks_contracts(),
-            "salesforce": self.test_salesforce_contracts()
+            "salesforce": self.test_salesforce_contracts(),
+            "notion": self.test_notion_contracts()
         }
         
         return results

@@ -75,7 +75,7 @@ class AIQualityValidator:
         baseline = self.baselines[baseline_key]
         similarity = self._calculate_similarity(content, baseline["content"])
         
-        threshold = 0.8
+        threshold = 0.80 
         passed = similarity >= threshold
         
         return {

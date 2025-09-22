@@ -46,7 +46,7 @@
 - **`e2e-testing/`** — ✅ **6/6 tests passing**
   - Complete Gmail → Content → Audio → Delivery pipeline
   - AI quality validation and semantic testing
-  - Multi-channel delivery (Slack, Email, SMS)
+- Multi-channel delivery (Slack, Email, SMS)
   - Audio file generation and validation
   - End-to-end test orchestration
 

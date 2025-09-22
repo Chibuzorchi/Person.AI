@@ -1,0 +1,33 @@
+[2025-09-22T12:27:44.863836] [INFO] Waiting for services to be ready...
+[2025-09-22T12:27:44.863847] [INFO] Checking Gmail Mock...
+[2025-09-22T12:27:45.909050] [INFO] ✅ Gmail Mock is ready
+[2025-09-22T12:27:45.909114] [INFO] Checking Content Engine...
+[2025-09-22T12:27:45.932073] [INFO] ✅ Content Engine is ready
+[2025-09-22T12:27:45.932093] [INFO] Checking Media Engine...
+[2025-09-22T12:27:45.944769] [INFO] ✅ Media Engine is ready
+[2025-09-22T12:27:45.944822] [INFO] Checking Delivery Gateway...
+[2025-09-22T12:27:45.958482] [INFO] ✅ Delivery Gateway is ready
+[2025-09-22T12:27:45.958619] [INFO] 🚀 Starting E2E test: e2e_1758544065
+[2025-09-22T12:27:45.958678] [INFO] 🔍 Testing Gmail data extraction...
+[2025-09-22T12:27:45.988367] [INFO] ✅ Extracted 5 emails
+[2025-09-22T12:27:45.988431] [INFO] 🔍 Testing content generation...
+[2025-09-22T12:27:45.991388] [INFO] ✅ Content generated successfully
+[2025-09-22T12:27:45.991395] [INFO] Text length: 760
+[2025-09-22T12:27:45.991397] [INFO] Audio script length: 826
+[2025-09-22T12:27:45.991433] [INFO] 🔍 Testing media processing...
+[2025-09-22T12:27:45.993965] [INFO] ✅ Audio generated successfully
+[2025-09-22T12:27:45.993970] [INFO] Audio file: brief_2b497bb3.wav
+[2025-09-22T12:27:45.993980] [INFO] Duration: 82.60s
+[2025-09-22T12:27:45.993981] [INFO] File size: 1696 bytes
+[2025-09-22T12:27:45.994016] [INFO] 🔍 Testing delivery...
+[2025-09-22T12:27:45.995862] [INFO] ✅ Email delivery successful
+[2025-09-22T12:27:45.995866] [INFO] ✅ Slack delivery successful
+[2025-09-22T12:27:45.995868] [INFO] ✅ Sms delivery successful
+[2025-09-22T12:27:45.995869] [INFO] Delivery summary: 3/3 channels successful
+[2025-09-22T12:27:45.995903] [INFO] 🔍 Testing verification...
+[2025-09-22T12:27:45.995913] [INFO] ✅ gmail_data_valid: True
+[2025-09-22T12:27:45.995916] [INFO] ✅ content_generated: True
+[2025-09-22T12:27:45.995917] [INFO] ✅ audio_generated: True
+[2025-09-22T12:27:45.995919] [INFO] ✅ delivery_successful: True
+[2025-09-22T12:27:45.995920] [INFO] ✅ all_stages_complete: True
+[2025-09-22T12:27:45.997336] [INFO] Test results saved to: /app/output/e2e_test_results_e2e_1758544065.json

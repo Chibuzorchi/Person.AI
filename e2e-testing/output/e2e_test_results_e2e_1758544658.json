@@ -1,0 +1,40 @@
+{
+  "test_id": "e2e_1758544658",
+  "start_time": "2025-09-22T12:37:38.597733",
+  "stages": {
+    "gmail_extraction": {
+      "success": true,
+      "duration": 0.01818108558654785,
+      "timestamp": "2025-09-22T12:37:38.615993"
+    },
+    "content_generation": {
+      "success": false,
+      "duration": 0.006089210510253906,
+      "timestamp": "2025-09-22T12:37:38.622089"
+    },
+    "media_processing": {
+      "success": false,
+      "duration": 4.00543212890625e-05,
+      "timestamp": "2025-09-22T12:37:38.622149"
+    },
+    "delivery": {
+      "success": false,
+      "duration": 2.3365020751953125e-05,
+      "timestamp": "2025-09-22T12:37:38.622181"
+    },
+    "verification": {
+      "success": false,
+      "duration": 6.890296936035156e-05,
+      "timestamp": "2025-09-22T12:37:38.622258"
+    }
+  },
+  "overall_success": false,
+  "errors": [
+    "Stage content_generation failed",
+    "Stage media_processing failed",
+    "Stage delivery failed",
+    "Stage verification failed"
+  ],
+  "duration": 0.024527,
+  "end_time": "2025-09-22T12:37:38.622259"
+}

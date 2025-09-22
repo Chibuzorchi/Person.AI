@@ -1,0 +1,35 @@
+{
+  "test_id": "e2e_1758544893",
+  "start_time": "2025-09-22T12:41:33.687902",
+  "stages": {
+    "gmail_extraction": {
+      "success": true,
+      "duration": 0.013443470001220703,
+      "timestamp": "2025-09-22T12:41:33.701381"
+    },
+    "content_generation": {
+      "success": true,
+      "duration": 0.0025947093963623047,
+      "timestamp": "2025-09-22T12:41:33.703978"
+    },
+    "media_processing": {
+      "success": true,
+      "duration": 0.002534627914428711,
+      "timestamp": "2025-09-22T12:41:33.706516"
+    },
+    "delivery": {
+      "success": true,
+      "duration": 0.002106904983520508,
+      "timestamp": "2025-09-22T12:41:33.708625"
+    },
+    "verification": {
+      "success": true,
+      "duration": 3.314018249511719e-05,
+      "timestamp": "2025-09-22T12:41:33.708660"
+    }
+  },
+  "overall_success": true,
+  "errors": [],
+  "duration": 0.020759,
+  "end_time": "2025-09-22T12:41:33.708661"
+}

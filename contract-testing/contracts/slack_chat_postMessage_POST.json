@@ -27,10 +27,13 @@
             "type": "string"
           }
         },
-        "required": ["text", "user", "ts"]
+        "required": ["text", "ts"]
+      },
+      "new_optional_field": {
+        "type": "string"
       }
     },
-    "required": ["ok", "channel", "ts", "message"]
+    "required": ["ok", "channel", "ts", "message", "new_optional_field"]
   },
   "version": "1.0.0",
   "last_updated": "2024-01-15T10:00:00+00:00",

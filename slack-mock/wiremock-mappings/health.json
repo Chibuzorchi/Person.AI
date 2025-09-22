@@ -8,7 +8,7 @@
     "headers": {
       "Content-Type": "application/json"
     },
-    "body": {
+    "jsonBody": {
       "status": "healthy",
       "timestamp": "{{now format='yyyy-MM-dd HH:mm:ss'}}",
       "websocket_clients": 0,
