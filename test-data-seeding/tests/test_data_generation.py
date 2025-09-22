@@ -6,6 +6,9 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
+# Mark as Tier 2 Important and Standalone
+pytestmark = [pytest.mark.tier2_important, pytest.mark.standalone]
+
 from data_generators.quickbooks_factory import QuickBooksDataFactory
 from data_generators.salesforce_factory import SalesforceDataFactory
 

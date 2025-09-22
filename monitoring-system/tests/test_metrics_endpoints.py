@@ -4,6 +4,9 @@ import re
 import time
 from typing import List, Dict, Any
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class TestMetricsEndpoints:
     """Test suite for metrics endpoints across all services"""
     

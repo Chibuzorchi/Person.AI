@@ -4,6 +4,9 @@ import time
 from datetime import datetime
 from typing import List, Dict, Any
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class TestAuditEndpoints:
     """Test suite for audit endpoints across all services"""
     

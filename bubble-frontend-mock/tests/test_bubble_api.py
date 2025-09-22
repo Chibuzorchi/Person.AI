@@ -3,6 +3,9 @@ import requests
 import time
 from typing import Dict, Any
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class BubbleAPITester:
     def __init__(self, api_base_url: str):
         self.api_base_url = api_base_url

@@ -8,6 +8,9 @@ import pytest
 import sys
 from pathlib import Path
 
+# Mark as Tier 2 Important and Standalone
+pytestmark = [pytest.mark.tier2_important, pytest.mark.standalone]
+
 # Add the contract-testing directory to Python path
 sys.path.insert(0, str(Path(__file__).parent))
 

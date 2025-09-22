@@ -3,6 +3,9 @@ from playwright.async_api import async_playwright, Page, Browser
 import asyncio
 from typing import Dict, Any
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class BubbleUITester:
     def __init__(self, app_url: str, test_credentials: Dict[str, str]):
         self.app_url = app_url

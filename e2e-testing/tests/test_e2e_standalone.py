@@ -10,7 +10,8 @@ import os
 import asyncio
 from unittest.mock import Mock, patch
 
-# Standalone tests - no external services required
+# Mark as Tier 1 Critical and Standalone
+pytestmark = [pytest.mark.tier1_critical, pytest.mark.standalone]
 
 # Add the parent directory to the path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))

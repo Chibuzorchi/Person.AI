@@ -6,6 +6,9 @@ import os
 from pathlib import Path
 import hashlib
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class VisualRegressionTester:
     def __init__(self, app_url: str, baseline_path: str):
         self.app_url = app_url

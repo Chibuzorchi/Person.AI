@@ -11,6 +11,9 @@ import jsonschema
 from pathlib import Path
 import time
 
+# Mark as Tier 2 Important and Integration
+pytestmark = [pytest.mark.tier2_important, pytest.mark.integration]
+
 class TestLiveSchemaDrift:
     """Test schema drift detection with real API calls"""
     

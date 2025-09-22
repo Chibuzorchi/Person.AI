@@ -3,6 +3,9 @@ import requests
 import time
 from typing import Dict, Any
 
+# Mark as Tier 3 Secondary and Integration
+pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
+
 class TestHealthEndpoints:
     """Test suite for health endpoints across all services"""
     

@@ -4,6 +4,8 @@ from typing import Dict, Any
 try:
     from .test_bubble_api import BubbleAPITester
     from .test_bubble_ui import BubbleUITester
+    # Mark as Tier 3 Secondary and Integration
+    pytestmark = [pytest.mark.tier3_secondary, pytest.mark.integration]
 except ImportError:
     # Skip all tests in this file if dependencies are not available
     pytestmark = pytest.mark.skip(reason="Test dependencies not available")
