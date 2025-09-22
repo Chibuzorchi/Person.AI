@@ -1,0 +1,49 @@
+{
+  "connector_type": "slack",
+  "endpoint": "/api/chat.postMessage",
+  "method": "POST",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "ok": {
+        "type": "boolean"
+      },
+      "channel": {
+        "type": "string"
+      },
+      "ts": {
+        "type": "string"
+      },
+      "message": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "ts": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "user",
+          "ts"
+        ]
+      }
+    },
+    "required": [
+      "ok",
+      "channel",
+      "ts",
+      "message"
+    ]
+  },
+  "version": "1.0.0",
+  "last_updated": "2025-09-22T00:15:30.878803",
+  "priority": "critical",
+  "breaking_changes": [],
+  "non_breaking_changes": []
+}

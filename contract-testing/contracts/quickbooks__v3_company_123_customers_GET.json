@@ -1,0 +1,51 @@
+{
+  "connector_type": "quickbooks",
+  "endpoint": "/v3/company/123/customers",
+  "method": "GET",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "QueryResponse": {
+        "type": "object",
+        "properties": {
+          "Customer": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Email": {
+                  "type": "string"
+                },
+                "Balance": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "Id",
+                "Name",
+                "Email"
+              ]
+            }
+          }
+        },
+        "required": [
+          "Customer"
+        ]
+      }
+    },
+    "required": [
+      "QueryResponse"
+    ]
+  },
+  "version": "1.0.0",
+  "last_updated": "2025-09-22T00:15:30.879085",
+  "priority": "critical",
+  "breaking_changes": [],
+  "non_breaking_changes": []
+}

@@ -10,8 +10,8 @@ import time
 import aiohttp
 import os
 
-# Mark all tests in this file as integration tests that require services
-pytestmark = pytest.mark.integration
+# Mark all tests in this file as Tier 1 Critical Integration tests
+pytestmark = [pytest.mark.tier1_critical, pytest.mark.integration]
 
 # Skip these tests if running in CI without Docker services
 if os.getenv('CI') and not os.getenv('DOCKER_SERVICES_RUNNING'):

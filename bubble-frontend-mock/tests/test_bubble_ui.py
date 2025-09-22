@@ -64,14 +64,19 @@ class BubbleUITester:
     async def test_briefing_scheduling_ui(self) -> Dict[str, Any]:
         """Test briefing scheduling UI workflow"""
         try:
+            # First ensure we're logged in
+            await self.login()
+            
             # Navigate to briefings page using JavaScript
-            await self.page.goto(f"{self.app_url}/index.html")
             await self.page.evaluate("window.app.showPage('briefings')")
+            await self.page.wait_for_timeout(2000)  # Wait for JavaScript to execute
+            
+            # Wait for briefings list to be visible
             await self.page.wait_for_selector('.briefings-list', timeout=10000)
             
             # Click schedule briefing button
             await self.page.click('button[onclick="showPage(\'schedule-briefing\')"]')
-            await self.page.wait_for_timeout(1000)  # Wait for JavaScript to execute
+            await self.page.wait_for_timeout(2000)  # Wait for JavaScript to execute
             await self.page.wait_for_selector('[data-testid="schedule-form"]', timeout=10000)
             
             # Fill briefing form
@@ -163,6 +168,9 @@ class BubbleUITester:
     async def test_integration_setup_ui(self, integration_type: str) -> Dict[str, Any]:
         """Test integration setup UI workflow"""
         try:
+            # First ensure we're logged in
+            await self.login()
+            
             # Navigate to integrations page using JavaScript
             await self.page.evaluate("window.app.showPage('integrations')")
             await self.page.wait_for_timeout(2000)  # Wait for JavaScript to execute

@@ -1,0 +1,167 @@
+name: Tiered Testing Strategy
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run Tier 3 tests weekly
+    - cron: '0 2 * * 1'  # Every Monday at 2 AM
+
+jobs:
+  # TIER 1: Critical tests - Run on every commit
+  tier1-critical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        component: [slack-mock, e2e-testing]
+        test-type: [standalone, integration]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary
+    - name: Run Tier 1 Critical Tests
+      run: |
+        cd ${{ matrix.component }}
+        pytest -m "tier1_critical and ${{ matrix.test-type }}" -v --tb=short
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: tier1-${{ matrix.component }}-${{ matrix.test-type }}
+        path: ${{ matrix.component }}/test-results/
+
+  # TIER 2: Important tests - Run on schema changes
+  tier2-important:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: contains(github.event.head_commit.message, 'schema') || contains(github.event.head_commit.message, 'api') || github.event_name == 'schedule'
+    strategy:
+      matrix:
+        component: [test-data-seeding, monitoring-system]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary
+    - name: Run Tier 2 Important Tests
+      run: |
+        cd ${{ matrix.component }}
+        pytest -m "tier2_important" -v --tb=short
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: tier2-${{ matrix.component }}
+        path: ${{ matrix.component }}/test-results/
+
+  # TIER 3: Secondary tests - Run weekly or on demand
+  tier3-secondary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.event_name == 'schedule' || contains(github.event.head_commit.message, 'full-test')
+    strategy:
+      matrix:
+        component: [bubble-frontend-mock, contract-testing]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary playwright
+    - name: Run Tier 3 Secondary Tests
+      run: |
+        cd ${{ matrix.component }}
+        pytest -m "tier3_secondary" -v --tb=short
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: tier3-${{ matrix.component }}
+        path: ${{ matrix.component }}/test-results/
+
+  # PARALLEL EXECUTION: Run multiple tiers in parallel
+  parallel-execution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: contains(github.event.head_commit.message, 'parallel') || github.event_name == 'schedule'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install pytest pytest-xdist requests flask psutil prometheus-client faker psycopg2-binary playwright
+    - name: Run Parallel Tests
+      run: |
+        python run_tiered_tests.py --tier all --parallel
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: parallel-test-results
+        path: test-results/
+
+  # SMOKE TESTS: Quick validation
+  smoke-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        pip install pytest requests flask
+    - name: Run Smoke Tests
+      run: |
+        python run_tiered_tests.py --tier smoke
+    - name: Upload results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: smoke-test-results
+        path: test-results/
+
+  # SUMMARY: Aggregate results
+  test-summary:
+    runs-on: ubuntu-latest
+    needs: [tier1-critical, tier2-important, tier3-secondary, parallel-execution, smoke-tests]
+    if: always()
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+    - name: Generate Test Summary
+      run: |
+        echo "## 🎯 Tiered Testing Results" >> $GITHUB_STEP_SUMMARY
+        echo "| Tier | Status | Duration |" >> $GITHUB_STEP_SUMMARY
+        echo "|------|--------|----------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Tier 1 (Critical) | ${{ needs.tier1-critical.result }} | ~10min |" >> $GITHUB_STEP_SUMMARY
+        echo "| Tier 2 (Important) | ${{ needs.tier2-important.result }} | ~15min |" >> $GITHUB_STEP_SUMMARY
+        echo "| Tier 3 (Secondary) | ${{ needs.tier3-secondary.result }} | ~20min |" >> $GITHUB_STEP_SUMMARY
+        echo "| Smoke Tests | ${{ needs.smoke-tests.result }} | ~5min |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🚀 Scaling Strategy" >> $GITHUB_STEP_SUMMARY
+        echo "- **Tier 1**: Run on every commit (Slack, Gmail, E2E)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Tier 2**: Run on schema changes (QuickBooks, Salesforce)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Tier 3**: Run weekly (UI, Monitoring, Long-tail integrations)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Parallel**: Run 10-20 integrations simultaneously" >> $GITHUB_STEP_SUMMARY

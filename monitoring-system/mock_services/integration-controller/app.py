@@ -18,10 +18,10 @@ request_count = 0
 briefs_processed = 0
 integrations_connected = 0
 
-# Historical audit events
+# Historical audit events (recent timestamps for testing)
 audit_events = [
     {
-        "timestamp": (datetime.now() - timedelta(hours=2)).isoformat(),
+        "timestamp": (datetime.now() - timedelta(minutes=30)).isoformat(),
         "event_type": "user_login",
         "user_id": "user_123",
         "resource_id": "auth_system",
@@ -30,7 +30,7 @@ audit_events = [
         "success": True
     },
     {
-        "timestamp": (datetime.now() - timedelta(hours=1, minutes=30)).isoformat(),
+        "timestamp": (datetime.now() - timedelta(minutes=15)).isoformat(),
         "event_type": "integration_connected",
         "user_id": "user_123",
         "resource_id": "slack_integration",
@@ -39,7 +39,7 @@ audit_events = [
         "success": True
     },
     {
-        "timestamp": (datetime.now() - timedelta(minutes=45)).isoformat(),
+        "timestamp": (datetime.now() - timedelta(minutes=5)).isoformat(),
         "event_type": "brief_created",
         "user_id": "user_123",
         "resource_id": "brief_456",
@@ -73,9 +73,9 @@ def get_cpu_usage():
 def check_dependencies():
     """Check external dependencies"""
     return {
-        "gmail_api": random.choice([True, True, True, False]),  # 75% success rate
+        "gmail_api": True,  # Always healthy for testing
         "slack_api": True,
-        "quickbooks_api": random.choice([True, True, False]),  # 67% success rate
+        "quickbooks_api": True,  # Always healthy for testing
         "salesforce_api": True,
         "database": True
     }

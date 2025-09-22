@@ -7,8 +7,8 @@ import time
 import json
 import os
 
-# Mark all tests in this file as integration tests that require services
-pytestmark = pytest.mark.integration
+# Mark all tests in this file as Tier 2 Important Integration tests
+pytestmark = [pytest.mark.tier2_important, pytest.mark.integration]
 
 # Skip these tests if running in CI without Docker services
 if os.getenv('CI') and not os.getenv('DOCKER_SERVICES_RUNNING'):

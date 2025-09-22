@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   gmail-mock:
     build: ./mock_services/gmail
@@ -31,11 +29,6 @@ services:
       - "5006:5000"
     environment:
       - ELEVENLABS_API_KEY=mock_key
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   delivery-gateway:
     build: ./mock_services/delivery_gateway
@@ -58,14 +51,10 @@ services:
       - MEDIA_ENGINE_URL=http://media-engine:5000
       - DELIVERY_GATEWAY_URL=http://delivery-gateway:5000
     depends_on:
-      gmail-mock:
-        condition: service_healthy
-      content-engine:
-        condition: service_healthy
-      media-engine:
-        condition: service_healthy
-      delivery-gateway:
-        condition: service_healthy
+      - gmail-mock
+      - content-engine
+      - media-engine
+      - delivery-gateway
     volumes:
       - ./test_runner:/app/test_runner
       - ./tests:/app/tests

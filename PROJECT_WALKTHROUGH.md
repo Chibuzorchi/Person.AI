@@ -43,6 +43,11 @@
 - **`docker-compose.yml`** - Runs both frontend and API together
 - **`requirements.txt`** - Python dependencies
 
+#### **Utility Scripts**
+- **`bubble_simple_test.py`** - Quick health check script for frontend and API
+  - *Demo edit*: Modify test credentials, add new endpoint checks
+- **`run_headful_demo.py`** - Runs UI tests in visible browser mode for demos
+
 ### How to Test
 
 ```bash
@@ -60,7 +65,9 @@ python3 -m pytest tests/ -v
 docker-compose down
 ```
 
-**Quick Demo**: Open http://localhost:8081 in browser, login with `test@personai.com` / `test_password`
+**Quick Demo**: 
+- Open http://localhost:8081 in browser, login with `test@personai.com` / `test_password`
+- Or run: `python3 bubble_simple_test.py` for automated health check
 
 ### Workflow & Dependencies
 

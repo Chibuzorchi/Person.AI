@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   integration-controller:
     build: ./mock_services/integration-controller

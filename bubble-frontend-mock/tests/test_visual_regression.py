@@ -33,7 +33,7 @@ class VisualRegressionTester:
         screenshot_path = self.baseline_path / f"{page_name}.png"
         
         if selector:
-            element = await self.page.locator(selector)
+            element = self.page.locator(selector)
             await element.screenshot(path=str(screenshot_path))
         else:
             await self.page.screenshot(path=str(screenshot_path))
@@ -144,8 +144,11 @@ class VisualRegressionTester:
             await self.page.click('[data-testid="login-button"]')
             await self.page.wait_for_selector('[data-testid="dashboard"]', timeout=15000)
             
-            # Navigate to briefing form
-            await self.page.goto(f"{self.app_url}/index.html#schedule-briefing")
+            # Navigate to briefing form using JavaScript
+            await self.page.evaluate("window.app.showPage('briefings')")
+            await self.page.wait_for_timeout(2000)
+            await self.page.click('button[onclick="showPage(\'schedule-briefing\')"]')
+            await self.page.wait_for_timeout(2000)
             await self.page.wait_for_selector('[data-testid="schedule-form"]', timeout=10000)
             
             # Capture form screenshot
@@ -187,8 +190,9 @@ class VisualRegressionTester:
             await self.page.click('[data-testid="login-button"]')
             await self.page.wait_for_selector('[data-testid="dashboard"]', timeout=15000)
             
-            # Navigate to integrations
-            await self.page.goto(f"{self.app_url}/index.html#integrations")
+            # Navigate to integrations using JavaScript
+            await self.page.evaluate("window.app.showPage('integrations')")
+            await self.page.wait_for_timeout(2000)
             await self.page.wait_for_selector('[data-testid="integrations-list"]', timeout=10000)
             
             # Capture screenshot
@@ -230,8 +234,9 @@ class VisualRegressionTester:
             await self.page.click('[data-testid="login-button"]')
             await self.page.wait_for_selector('[data-testid="dashboard"]', timeout=15000)
             
-            # Navigate to settings
-            await self.page.goto(f"{self.app_url}/index.html#settings")
+            # Navigate to settings using JavaScript
+            await self.page.evaluate("window.app.showPage('settings')")
+            await self.page.wait_for_timeout(2000)
             await self.page.wait_for_selector('[data-testid="preferences-form"]', timeout=10000)
             
             # Capture screenshot

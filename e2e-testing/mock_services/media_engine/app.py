@@ -8,7 +8,14 @@ import tempfile
 import uuid
 from datetime import datetime
 from flask import Flask, jsonify, request, send_file
-import pyttsx3
+
+# Try to import pyttsx3, but don't fail if it's not available in Docker
+try:
+    import pyttsx3
+    PYTTSX3_AVAILABLE = True
+except ImportError:
+    PYTTSX3_AVAILABLE = False
+    print("Warning: pyttsx3 not available, using fallback audio generation")
 
 app = Flask(__name__)
 
@@ -16,13 +23,42 @@ class MediaEngineMock:
     def __init__(self):
         self.api_key = os.getenv('ELEVENLABS_API_KEY', 'mock_key')
         self.voice_id = 'mock_voice_id'
-        self.output_dir = '/app/output'
-        os.makedirs(self.output_dir, exist_ok=True)
+        # Use a writable directory for standalone testing
+        self.output_dir = os.path.join(os.getcwd(), 'output')
+        try:
+            os.makedirs(self.output_dir, exist_ok=True)
+        except OSError:
+            # Fallback to temp directory if output dir can't be created
+            self.output_dir = tempfile.gettempdir()
     
     def generate_audio(self, text, voice_id=None):
         """Generate audio from text (ElevenLabs-style)"""
-        # For now, use fallback audio generation to avoid pyttsx3 issues in Docker
-        return self._create_fallback_audio(text, voice_id)
+        if PYTTSX3_AVAILABLE:
+            try:
+                return self._create_pyttsx3_audio(text, voice_id)
+            except Exception as e:
+                print(f"pyttsx3 failed, using fallback: {e}")
+                return self._create_fallback_audio(text, voice_id)
+        else:
+            return self._create_fallback_audio(text, voice_id)
+    
+    def _create_pyttsx3_audio(self, text, voice_id):
+        """Create audio using pyttsx3"""
+        engine = pyttsx3.init()
+        engine.setProperty('rate', 150)
+        
+        audio_filename = f"brief_{uuid.uuid4().hex[:8]}.wav"
+        audio_path = os.path.join(self.output_dir, audio_filename)
+        
+        engine.save_to_file(text, audio_path)
+        engine.runAndWait()
+        
+        return {
+            'audio_path': audio_path,
+            'filename': audio_filename,
+            'duration': len(text) * 0.1,  # Rough estimate
+            'method': 'pyttsx3'
+        }
     
     def _create_fallback_audio(self, text, voice_id):
         """Create fallback audio file"""

@@ -1,0 +1,50 @@
+{
+  "connector_type": "salesforce",
+  "endpoint": "/services/data/v52.0/query",
+  "method": "GET",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "totalSize": {
+        "type": "integer"
+      },
+      "done": {
+        "type": "boolean"
+      },
+      "records": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Id": {
+              "type": "string"
+            },
+            "Name": {
+              "type": "string"
+            },
+            "Type": {
+              "type": "string"
+            },
+            "Industry": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Id",
+            "Name"
+          ]
+        }
+      }
+    },
+    "required": [
+      "totalSize",
+      "done",
+      "records"
+    ]
+  },
+  "version": "1.0.0",
+  "last_updated": "2025-09-22T00:15:30.879265",
+  "priority": "critical",
+  "breaking_changes": [],
+  "non_breaking_changes": []
+}
